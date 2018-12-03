@@ -5,7 +5,6 @@
         <breadcrumbs :routes="breadcrumbs.routes" :active-route="category.name" />
         <div class="row middle-sm">
           <h1 class="col-sm-9 category-title mb10"> {{ category.name }} </h1>
-          <div class="sorting col-sm-3 align-right"><SortBy /></div>
         </div>
       </div>
       <div class="container">
@@ -16,7 +15,6 @@
           >
             {{ $t('Filters') }}
           </button>
-          <div class="mobile-sorting col-xs-6 mt25"><SortBy /></div>
         </div>
       </div>
     </header>

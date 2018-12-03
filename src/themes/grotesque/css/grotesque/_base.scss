@@ -1,6 +1,6 @@
 #category {
 	> header {
-		background: #B71F2E;
+		background: map-get($colors, grotesque);
 
 		h1 {
 			color: #fff;
@@ -9,7 +9,7 @@
 		.breadcrumbs {
 			> span {
 				color: rgba(255,255,255,0.7);
-		
+
 				> a {
 					color: rgba(255,255,255,0.7);
 				}

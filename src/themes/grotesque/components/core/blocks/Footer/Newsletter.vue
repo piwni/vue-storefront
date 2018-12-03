@@ -1,16 +1,16 @@
 <template>
-  <div class="newsletter py25 px15 bg-cl-secondary">
+  <div class="newsletter py25 px15 bg-cl-grotesque">
     <div class="container">
       <div class="newsletter-content m0 row middle-sm start-md">
         <div class="col-md-9 col-xs-12">
-          <h3 class="h3 cl-accent weight-400 m0">
+          <h3 class="h3 cl-white weight-400 m0 sans-serif">
             {{ $t('Subscribe to the newsletter and receive a coupon for 10% off') }}
           </h3>
         </div>
         <div class="newsletter-button col-md-3 col-xs-12 end-md">
           <button-outline
             @click.native="$bus.$emit('modal-show', 'modal-newsletter')"
-            color="dark"
+            color="light"
             data-testid="openNewsletterButton"
           >
             {{ $t('Subscribe') }}

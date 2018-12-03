@@ -1,4 +1,4 @@
-<template>
+\<template>
   <div id="product" itemscope itemtype="http://schema.org/Product">
     <section class="bg-cl-secondary px20 product-top-section">
       <div class="container">
@@ -20,9 +20,6 @@
             <h1 class="mb20 mt0 cl-mine-shaft product-name" data-testid="productName" itemprop="name">
               {{ product.name | htmlDecode }}
             </h1>
-            <div class="mb20 uppercase cl-secondary">
-              sku: {{ product.sku }}
-            </div>
             <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
               <meta itemprop="priceCurrency" :content="currentStore.i18n.currencyCode">
               <meta itemprop="price" :content="parseFloat(product.priceInclTax).toFixed(2)">
@@ -31,18 +28,18 @@
                 v-if="product.type_id !== 'grouped'"
               >
                 <div
-                  class="h3 cl-secondary"
+                  class="h4 cl-secondary"
                   v-if="product.special_price && product.priceInclTax && product.originalPriceInclTax"
                 >
-                  <span class="h2 cl-mine-shaft weight-700">
+                  <span class="h3 cl-mine-shaft weight-700 sans-serif">
                     {{ product.priceInclTax * product.qty | price }}
                   </span>&nbsp;
-                  <span class="price-original h3">
+                  <span class="price-original h4 sans-serif">
                     {{ product.originalPriceInclTax * product.qty | price }}
                   </span>
                 </div>
                 <div
-                  class="h2 cl-mine-shaft weight-700"
+                  class="h2 cl-mine-shaft weight-500 sans-serif"
                   v-if="!product.special_price && product.priceInclTax"
                 >
                   {{ product.priceInclTax * product.qty | price }}
