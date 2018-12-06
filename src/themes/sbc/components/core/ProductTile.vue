@@ -16,7 +16,7 @@
       data-testid="productLink"
     >
       <div
-        class="product-image relative bg-cl-secondary"
+        class="product-image relative bg-cl-transparent"
         :class="[{ sale: labelsActive && isOnSale }, { new: labelsActive && isNew }]">
         <img
           :alt="product.name"

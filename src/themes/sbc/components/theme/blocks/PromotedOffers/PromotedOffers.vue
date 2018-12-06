@@ -21,21 +21,23 @@
         </router-link>
       </div>
 
-      <div class="col-xs-12 col-sm-6">
-        <div
-          class="offer-container pb15"
-          v-for="(banner, index) in banners.smallBanners"
-          :key="index"
-        >
-          <router-link :to="localizedRoute(banner.link)">
+      <div class="col-xs-12 col-sm-12">
+        <div class="row">
+          <div class="col-xs-12 col-sm-6" v-for="(banner, index) in banners.smallBanners" :key="index">
             <div
-              class="offer offer-small border-box p5 flex center-xs middle-xs cl-white bg-cl-th-accent"
-              v-lazy:background-image="banner.image"
+              class="offer-container pb15"
             >
-              <p class="subtitle m0 serif h3 uppercase">{{ banner.subtitle }}</p>
-              <h2 class="title m0 h1">{{ banner.title }}</h2>
+              <router-link :to="localizedRoute(banner.link)">
+                <div
+                  class="offer offer-small border-box p5 flex center-xs middle-xs cl-white bg-cl-th-accent"
+                  v-lazy:background-image="banner.image"
+                >
+                  <p class="subtitle m0 serif h3 uppercase">{{ banner.subtitle }}</p>
+                  <h2 class="title m0 h1">{{ banner.title }}</h2>
+                </div>
+              </router-link>
             </div>
-          </router-link>
+          </div>
         </div>
       </div>
     </div>
@@ -133,6 +135,7 @@ export default {
     }
   }
   .title {
+    text-transform: uppercase;
     @media (max-width: 767px) {
       font-size: 36px;
     }

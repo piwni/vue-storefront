@@ -20,9 +20,6 @@
             <h1 class="mb20 mt0 cl-mine-shaft product-name" data-testid="productName" itemprop="name">
               {{ product.name | htmlDecode }}
             </h1>
-            <div class="mb20 uppercase cl-secondary">
-              sku: {{ product.sku }}
-            </div>
             <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
               <meta itemprop="priceCurrency" :content="currentStore.i18n.currencyCode">
               <meta itemprop="price" :content="parseFloat(product.priceInclTax).toFixed(2)">
@@ -156,46 +153,6 @@
                 class="col-xs-12 col-sm-4 col-md-6"
               />
             </div>
-            <div class="row py40 add-to-buttons">
-              <div class="col-xs-6 col-sm-3 col-md-6">
-                <button
-                  @click="isOnWishlist ? removeFromWishlist(product) : addToWishlist(product)"
-                  class="
-                    p0 inline-flex middle-xs bg-cl-transparent brdr-none
-                    action h5 pointer cl-secondary
-                  "
-                  type="button"
-                  data-testid="addToWishlist"
-                >
-                  <i class="pr5 material-icons">{{ favoriteIcon }}</i>
-                  <template v-if="!isOnWishlist">
-                    {{ $t('Add to favorite') }}
-                  </template>
-                  <template v-else>
-                    {{ $t('Remove') }}
-                  </template>
-                </button>
-              </div>
-              <div class="col-xs-6 col-sm-3 col-md-6">
-                <button
-                  @click="isOnCompare ? removeFromList('compare') : addToList('compare')"
-                  class="
-                    p0 inline-flex middle-xs bg-cl-transparent brdr-none
-                    action h5 pointer cl-secondary
-                  "
-                  type="button"
-                  data-testid="addToCompare"
-                >
-                  <i class="pr5 material-icons">compare</i>
-                  <template v-if="!isOnCompare">
-                    {{ $t('Add to compare') }}
-                  </template>
-                  <template v-else>
-                    {{ $t('Remove from compare') }}
-                  </template>
-                </button>
-              </div>
-            </div>
           </div>
         </section>
       </div>
@@ -217,6 +174,11 @@
             />
           </div>
           <div class="col-xs-12 col-sm-5">
+            <div
+              class="lh30 h5"
+              itemprop="description"
+              v-html="product.short_description"
+            />
             <ul class="attributes p0 pt5 m0">
               <product-attribute
                 :key="attr.attribute_code"

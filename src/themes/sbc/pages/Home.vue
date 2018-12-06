@@ -1,6 +1,6 @@
 <template>
   <div id="home">
-    <main-slider />
+    <full-banner image="/assets/home/baner_bf.jpg" link="c/default-category-2" />
 
     <promoted-offers/>
 
@@ -15,18 +15,6 @@
       </div>
     </section>
 
-    <collection :title="$t('New Luma Yoga Collection')" cover-image="/assets/collection.jpg" category="Women"/>
-
-    <section class="container pb60 px15">
-      <div class="row center-xs">
-        <header class="col-md-12 pt40">
-          <h2 class="align-center cl-accent">{{ $t('Get inspired') }}</h2>
-        </header>
-      </div>
-      <tile-links />
-    </section>
-    <Onboard/>
-
   </div>
 </template>
 
@@ -39,7 +27,7 @@ import Home from '@vue-storefront/core/pages/Home'
 
 // Theme core components
 import ProductListing from 'theme/components/core/ProductListing'
-import MainSlider from 'theme/components/core/blocks/MainSlider/MainSlider'
+import FullBanner from 'theme/components/theme/blocks/Home/FullBanner'
 
 // Theme local components
 import Collection from 'theme/components/theme/blocks/Collection/Collection'
@@ -51,7 +39,7 @@ export default {
   mixins: [Home],
   components: {
     Collection,
-    MainSlider,
+    FullBanner,
     Onboard,
     ProductListing,
     PromotedOffers,
