@@ -19,7 +19,8 @@ $colors: (
   buccaneer: #755,
   forest-green: #308c14,
   puerto-rico: #4dba87,
-  mine-shaft: #333
+  mine-shaft: #333,
+  grotesque: #B71F2E
 );
 
 // Theme generic colors
@@ -57,6 +58,10 @@ $colors-background: (
   secondary: (
     default: map-get($colors, white-smoke),
     hover: map-get($colors, gainsboro)
+  ),
+  grotesque: (
+    default: map-get($colors, grotesque),
+    hover: map-get($colors, grotesque)
   ),
   tertiary: map-get($colors, suva-gray)
 );

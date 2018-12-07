@@ -4,6 +4,14 @@
       class="fixed w-100 brdr-bottom-1 bg-cl-primary brdr-cl-secondary"
       :class="{ 'is-visible': navVisible }"
     >
+      <div class="meta-header" :class="{ 'is-visible': metaVisible }">
+        <div class="container px15">
+          <div class="meta-inner">
+            <language-switcher v-if="multistoreEnabled" />
+          </div>
+        </div>
+      </div>
+
       <div class="container px15">
         <div class="row between-xs middle-xs" v-if="!isCheckoutPage">
           <div class="col-md-4 col-xs-2 middle-xs">
@@ -21,7 +29,7 @@
           </div>
           <div class="col-md-4 col-xs-4 center-xs pt5">
             <div>
-              <logo width="auto" height="41px"/>
+              <logo width="auto" height="41px" mobile-width="auto" mobile-height="24px" />
             </div>
           </div>
           <div class="col-xs-2 visible-xs">
@@ -30,8 +38,6 @@
           <div class="col-md-4 col-xs-2 end-xs">
             <div class="inline-flex right-icons">
               <search-icon class="p15 icon hidden-xs pointer" />
-              <wishlist-icon class="p15 icon hidden-xs pointer" />
-              <compare-icon class="p15 icon hidden-xs pointer" />
               <microcart-icon class="p15 icon pointer" />
               <account-icon class="p15 icon hidden-xs pointer" />
             </div>
@@ -46,7 +52,7 @@
             </div>
           </div>
           <div class="col-xs-2 col-md-6 center-xs">
-            <logo width="auto" height="41px"/>
+            <logo width="auto" height="41px" mobile-width="auto" mobile-height="24px" />
           </div>
           <div class="col-xs-5 col-md-3 end-xs">
             <div>
@@ -76,6 +82,7 @@ import MicrocartIcon from 'theme/components/core/blocks/Header/MicrocartIcon'
 import ReturnIcon from 'theme/components/core/blocks/Header/ReturnIcon'
 import SearchIcon from 'theme/components/core/blocks/Header/SearchIcon'
 import WishlistIcon from 'theme/components/core/blocks/Header/WishlistIcon'
+import LanguageSwitcher from '../../LanguageSwitcher.vue'
 
 export default {
   name: 'Header',
@@ -87,16 +94,18 @@ export default {
     MicrocartIcon,
     ReturnIcon,
     SearchIcon,
-    WishlistIcon
+    WishlistIcon,
+    LanguageSwitcher
   },
   mixins: [CurrentPage],
   data () {
     return {
       navVisible: true,
+      metaVisible: true,
       isScrolling: false,
       scrollTop: 0,
       lastScrollTop: 0,
-      navbarHeight: 54
+      navbarHeight: 80
     }
   },
   computed: {
@@ -128,6 +137,11 @@ export default {
       } else {
         this.navVisible = true
       }
+      if (this.scrollTop > this.navbarHeight) {
+        this.metaVisible = false
+      } else {
+        this.metaVisible = true
+      }
       this.lastScrollTop = this.scrollTop
     }
   }
@@ -140,12 +154,34 @@ export default {
 $color-icon-hover: color(secondary, $colors-background);
 
 header {
-  height: 54px;
-  top: -55px;
+  height: auto;
+  top: -80px;
   z-index: 2;
   transition: top 0.2s ease-in-out;
   &.is-visible {
     top: 0;
+  }
+
+  .meta-header {
+    background: #eee;
+    color: #333;
+    font-size: 13px;
+    text-align: right;
+    overflow: hidden;
+    height: auto;
+    max-height: 0;
+    transition: max-height 0.2s ease-in-out;
+    &.is-visible {
+       max-height: 30px;
+    }
+
+    .meta-inner {
+      padding: 7px 0;
+
+      @media (min-width: 768px) {
+        margin-right: 15px;
+      }
+    }
   }
 }
 .icon {

@@ -1,6 +1,6 @@
 <template>
   <div id="home">
-    <main-slider />
+    <full-banner image="/assets/home/banner_0.jpg" link="c/default-category-2" :title="$t('New collection')" :button_text="$t('Shop now')" />
 
     <promoted-offers/>
 
@@ -39,20 +39,18 @@ import Home from '@vue-storefront/core/pages/Home'
 
 // Theme core components
 import ProductListing from 'theme/components/core/ProductListing'
-import MainSlider from 'theme/components/core/blocks/MainSlider/MainSlider'
 
 // Theme local components
 import Collection from 'theme/components/theme/blocks/Collection/Collection'
-import Onboard from 'theme/components/theme/blocks/Home/Onboard'
 import PromotedOffers from 'theme/components/theme/blocks/PromotedOffers/PromotedOffers'
 import TileLinks from 'theme/components/theme/blocks/TileLinks/TileLinks'
 import { Logger } from '@vue-storefront/core/lib/logger'
+import FullBanner from 'theme/components/theme/blocks/Home/FullBanner'
 export default {
   mixins: [Home],
   components: {
     Collection,
-    MainSlider,
-    Onboard,
+    FullBanner,
     ProductListing,
     PromotedOffers,
     TileLinks

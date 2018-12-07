@@ -4,8 +4,17 @@
       :width="width"
       :height="height"
       src="/assets/logo.svg"
-      alt="Vuestore logo"
+      alt="Grotesque logo"
+      class="hidden-xs"
     >
+    <img
+      :width="mobileWidth"
+      :height="mobileHeight"
+      src="/assets/logo-icon.svg"
+      alt="Grotesque logo"
+      class="visible-xs"
+    >
+
   </router-link>
 </template>
 
@@ -17,6 +26,14 @@ export default {
       required: true
     },
     height: {
+      type: [String, Number],
+      required: true
+    },
+    mobileWidth: {
+      type: [String, Number],
+      required: true
+    },
+    mobileHeight: {
       type: [String, Number],
       required: true
     }

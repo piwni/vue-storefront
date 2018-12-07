@@ -6,7 +6,7 @@
 		{{{ meta.inject().link.text() }}}
 		<script type="text/javascript">
 			WebFontConfig = {
-				google: { families: [ 'Playfair+Display:400,700', 'Roboto:400,700' ] }
+				google: { families: [ 'Playfair+Display:400,700', 'Lato:400,700' ] }
 			};
 			(function() {
 				var wf = document.createElement('script');
@@ -16,10 +16,10 @@
 				wf.async = 'true';
 				var s = document.getElementsByTagName('script')[0];
 				s.parentNode.insertBefore(wf, s);
-			})(); 
+			})();
 		</script>
 		{{{ renderStyles() }}}
-		{{{ output.appendHead() }}}		
+		{{{ output.appendHead() }}}
 	</head>
   <body>
 		<!--vue-ssr-outlet-->
