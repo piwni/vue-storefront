@@ -109,6 +109,9 @@ export default {
     }
   },
   computed: {
+    multistoreEnabled () {
+      return this.$store.state.config.storeViews.multistore
+    },
     ...mapState({
       isOpenLogin: state => state.ui.signUp,
       currentUser: state => state.user.current
