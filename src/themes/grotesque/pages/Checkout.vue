@@ -1,8 +1,11 @@
 <template>
   <div id="checkout">
     <div class="container">
-      <div class="row" v-show="!orderPlaced">
-        <div class="col-sm-7 col-xs-12 pb70">
+      <div v-show="!orderPlaced" class="checkout-wrap">
+        <div class="checkout-right">
+          <cart-summary />
+        </div>
+        <div class="checkout-left">
           <div class="checkout-title py5 px20">
             <h1>
               {{ $t('Checkout') }}
@@ -17,9 +20,6 @@
           <payment class="line relative" :is-active="activeSection.payment"/>
           <order-review class="line relative" :is-active="activeSection.orderReview"/>
           <div id="custom-steps"/>
-        </div>
-        <div class="hidden-xs col-sm-5 bg-cl-secondary">
-          <cart-summary />
         </div>
       </div>
     </div>
@@ -99,6 +99,8 @@ export default {
   $color-black: color(black);
 
   #checkout {
+    border-bottom: 1px solid #ddd;
+
     .number-circle {
       width: 35px;
       height: 35px;
@@ -176,12 +178,76 @@ export default {
 
   .checkout-title {
     @media (max-width: 767px) {
-      background-color: $bg-secondary;
       margin-bottom: 25px;
+      display: none;
 
       h1 {
         font-size: 36px;
       }
     }
   }
+
+  @media (min-width: 992px) {
+    .checkout-wrap {
+      position: relative;
+      display: flex;
+      flex-direction: row-reverse;
+    }
+  }
+
+  .checkout-right {
+    position: relative;
+    z-index: 1;
+
+    &:after {
+      background-position: left top;
+      content: "";
+      display: block;
+      background: #fafafa;
+      top: -20px;
+      left: -300%;
+      bottom: 0;
+      width: 600%;
+      height: 100%;
+      position: absolute;
+      z-index: -1;
+      box-shadow: 0 -1px 0 #e1e1e1 inset;
+    }
+  }
+
+  .checkout-left {
+    padding-bottom: 40px;
+  }
+
+  @media (min-width: 992px) {
+    .checkout-left {
+      width: 56%;
+      padding-right: 2%;
+      float: left;
+    }
+    .checkout-right {
+      width: 38%;
+      padding-left: 4%;
+      background-position: left top;
+      float: right;
+      position: relative;
+      z-index: 1;
+
+      &:after {
+        background-position: left top;
+        content: "";
+        display: block;
+        width: 300%;
+        height: auto;
+        position: absolute;
+        top: -20px;
+        left: 0;
+        bottom: 0;
+        background: #fafafa;
+        z-index: -1;
+        box-shadow: 1px 0 0 #e1e1e1 inset;
+      }
+    }
+  }
+
 </style>

@@ -1,0 +1,15 @@
+// .font-size-5 - example class for px font-size
+
+// Font sizes
+$font-size-px: 12 14 16 18 20 24 26 32 40 48 56;
+
+// Generators
+@mixin font-size {
+  @each $i in $font-size-px {
+    .font-size-#{$i} {
+      font-size: #{$i}px;
+    }
+  }
+}
+
+@include font-size;

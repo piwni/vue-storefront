@@ -150,5 +150,47 @@
   "theme": "grotesque",
   "analytics": {
     "id": "UA-128365410-1"
+  },
+  "query": {
+    "inspirations": {
+      "filter": [
+        {
+          "key": "category.name",
+          "value": {
+            "eq": "Sets"
+          }
+        }
+      ]
+    },
+    "newProducts": {
+      "filter": [
+        {
+          "key": "category.name",
+          "value": {
+            "eq": "Grotesque"
+          }
+        }
+      ]
+    },
+    "coolBags": {
+      "filter": [
+        {
+          "key": "category.name",
+          "value": {
+            "eq": "Sets"
+          }
+        }
+      ]
+    },
+    "bestSellers": {
+      "filter": [
+        {
+          "key": "category.name",
+          "value": {
+            "eq": "Tees"
+          }
+        }
+      ]
+    }
   }
 }

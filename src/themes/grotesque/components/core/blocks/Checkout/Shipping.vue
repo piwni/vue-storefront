@@ -4,7 +4,7 @@
       <div class="col-xs-1 col-sm-2 col-md-1">
         <div
           class="number-circle lh35 cl-white brdr-circle align-center weight-700"
-          :class="{ 'bg-cl-th-accent' : isActive || isFilled, 'bg-cl-tertiary' : !isFilled && !isActive }"
+          :class="{ 'bg-cl-th-grotesque' : isActive || isFilled, 'bg-cl-tertiary' : !isFilled && !isActive }"
         >
           2
         </div>
@@ -313,3 +313,11 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+h3 {
+  @media (max-width: 767px) {
+    margin-top: -5px;
+  }
+}
+</style>

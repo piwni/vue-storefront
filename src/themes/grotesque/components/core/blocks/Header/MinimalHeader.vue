@@ -79,10 +79,6 @@ header {
 @media (max-width: 767px) {
   .row.middle-xs {
     margin: 0 -15px;
-
-    &.py5 {
-      margin: 0;
-    }
   }
   .col-xs-2:first-of-type {
       padding-left: 0;

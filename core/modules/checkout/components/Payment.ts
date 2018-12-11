@@ -42,6 +42,7 @@ export const Payment = {
       }
     }
     this.changePaymentMethod()
+    this.useShippingAddress()
   },
   methods: {
     sendDataToCheckout () {

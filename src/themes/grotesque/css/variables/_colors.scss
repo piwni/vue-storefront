@@ -42,7 +42,8 @@ $colors-theme: (
   tertiary: map-get($colors, silver),
   success: map-get($colors, puerto-rico),
   warning: map-get($colors, buccaneer),
-  error: map-get($colors, burnt-sienna)
+  error: map-get($colors, burnt-sienna),
+  grotesque: map_get($colors, grotesque)
 );
 
 $colors-border: (

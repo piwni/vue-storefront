@@ -4,7 +4,7 @@
       class="fixed w-100 brdr-bottom-1 bg-cl-primary brdr-cl-secondary"
       :class="{ 'is-visible': navVisible }"
     >
-      <div class="meta-header" :class="{ 'is-visible': metaVisible }">
+      <div class="meta-header" :class="{ 'is-visible': metaVisible && !isCheckoutPage }">
         <div class="container px15">
           <div class="meta-inner">
             <language-switcher v-if="multistoreEnabled" />
@@ -46,7 +46,7 @@
         <div class="row between-xs middle-xs px15 py5" v-if="isCheckoutPage">
           <div class="col-xs-5 col-md-3 middle-xs">
             <div>
-              <router-link :to="localizedRoute('/')" class="cl-tertiary links">
+              <router-link :to="localizedRoute('/')" class="cl-tertiary links font-size-14">
                 {{ $t('Return to shopping') }}
               </router-link>
             </div>
@@ -56,7 +56,7 @@
           </div>
           <div class="col-xs-5 col-md-3 end-xs">
             <div>
-              <a v-if="!currentUser" href="#" @click.prevent="gotoAccount" class="cl-tertiary links">
+              <a v-if="!currentUser" href="#" @click.prevent="gotoAccount" class="cl-tertiary links font-size-14">
                 {{ $t('Login to your account') }}
               </a>
               <span v-else>
@@ -208,10 +208,6 @@ header {
 @media (max-width: 767px) {
   .row.middle-xs {
     margin: 0 -15px;
-
-    &.py5 {
-      margin: 0;
-    }
   }
   .col-xs-2:first-of-type {
       padding-left: 0;

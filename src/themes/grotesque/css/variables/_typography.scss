@@ -12,6 +12,6 @@ $font-fallbacks: (
 );
 
 $font-families: (
-        primary: ("Roboto", #{(map-get($font-fallbacks, 'sans-serif'))}),
+        primary: ("Lato", #{(map-get($font-fallbacks, 'sans-serif'))}),
         secondary: ("Playfair Display", map-get($font-fallbacks, 'serif'))
 ) !default;

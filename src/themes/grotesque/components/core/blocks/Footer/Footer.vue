@@ -1,5 +1,6 @@
 <template>
-  <footer :class="{ 'brdr-top-1 brdr-cl-secondary': isCheckoutPage }">
+  <footer :class="{ 'brdr-top-1 brdr-cl-secondary': isCheckoutPage }"
+          v-if="!isCheckoutPage">
     <newsletter class=" flex brdr-bottom-1 brdr-cl-secondary" v-if="!isCheckoutPage"/>
     <div
       class="footer-links flex pt30 pb60 px40"

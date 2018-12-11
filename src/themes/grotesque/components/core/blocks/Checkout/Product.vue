@@ -1,5 +1,5 @@
 <template>
-  <div class="row p25 between-xs">
+  <div class="row py20 mx0 between-xs">
     <img class="blend" v-lazy="thumbnail">
     <div class="col-xs">
       <div class="row">
