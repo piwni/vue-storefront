@@ -1,6 +1,6 @@
 <template>
   <div id="home">
-    <full-banner image="/assets/home/banner_0.jpg" link="c/default-category-2" :title="$t('New collection')" :button_text="$t('Shop now')" />
+    <full-banner image="/assets/home/banner_0.jpg" link="c/grotesque-2" :title="$t('New collection')" :button_text="$t('Shop now')" />
 
     <promoted-offers/>
 
@@ -15,17 +15,7 @@
       </div>
     </section>
 
-    <collection :title="$t('New Luma Yoga Collection')" cover-image="/assets/collection.jpg" category="Women"/>
-
-    <section class="container pb60 px15">
-      <div class="row center-xs">
-        <header class="col-md-12 pt40">
-          <h2 class="align-center cl-accent">{{ $t('Get inspired') }}</h2>
-        </header>
-      </div>
-      <tile-links />
-    </section>
-    <Onboard/>
+    <collection :title="$t('Our bestsellers')" cover-image="/assets/collection.jpg" category="Sets"/>
 
   </div>
 </template>

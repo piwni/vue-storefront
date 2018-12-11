@@ -103,14 +103,17 @@ export default {
   .offer {
     height: 735px;
     flex-direction: column;
-    background-position: center;
+    background-position: center top;
     background-size: cover;
     background-repeat: no-repeat;
-    opacity: 0.9;
+    opacity: 1;
     transition: 0.3s all;
+    transform: scale(1);
 
     &:hover {
       opacity: 1;
+      transform: scale(1.02);
+      z-index: 100;
     }
 
     @media (max-width: 767px) {

@@ -1,32 +1,26 @@
 {
   "mainBanners": [
 	  {
-	    "title": "Luma Performance",
+	    "title": "Maxi",
 	    "subtitle": "Collection",
-	    "image": "/assets/slide_02.jpg",
-	    "link": "/c/women-20"
-	  }
+	    "image": "/assets/2omnh9.gif",
+	    "link": "/c/maxi-6"
+	  },
+    {
+      "title": "Midi",
+      "subtitle": "Sale",
+      "image": "/assets/midi-main.jpg",
+      "link": "/c/midi-5"
+    }
   ],
   "smallBanners": [
-    {
-      "title": "Erin Renny",
-      "subtitle": "New",
-      "image": "/assets/ig/ig03.jpg",
-      "link": "/c/men-11"
-    },
-    {
-      "title": "Eco-friendly",
-      "subtitle": "Sales",
-      "image": "/assets/ig/ig05.jpg",
-      "link": "/c/gear-3"
-    }
   ],
   "productBanners": [
 	  {
-	    "title": "Eco-friendly",
-	    "subtitle": "Sales",
+	    "title": "Midi",
+	    "subtitle": "Sale",
 	    "image": "/assets/ig/ig05.jpg",
-	    "link": "/c/gear-3"
+	    "link": "/c/midi-5"
 	  }
   ]
 }

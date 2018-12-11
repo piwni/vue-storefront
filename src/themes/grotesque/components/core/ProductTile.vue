@@ -16,7 +16,7 @@
       data-testid="productLink"
     >
       <div
-        class="product-image relative bg-cl-secondary"
+        class="product-image relative bg-cl-transparent"
         :class="[{ sale: labelsActive && isOnSale }, { new: labelsActive && isNew }]">
         <img
           :alt="product.name"
@@ -173,6 +173,7 @@ $color-white: color(white);
     &[lazy="loaded"] {
       animation: products-loaded;
       animation-duration: 0.3s;
+      opacity: 1;
     }
 
     @keyframes products-loaded {
