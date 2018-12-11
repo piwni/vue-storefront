@@ -1,0 +1,196 @@
+{
+  "elasticsearch": {
+    "httpAuth": "",
+    "host": "https://xxx.soboredclub.com/api/catalog",
+    "index": "vue_storefront_catalog"
+  },
+  "storeViews": {
+    "mapStoreUrlsFor": [
+      "de",
+      "pl"
+    ],
+    "multistore": true,
+    "de": {
+      "storeCode": "de",
+      "disabled": false,
+      "storeId": 3,
+      "name": "German Store",
+      "url": "/de",
+      "elasticsearch": {
+        "host": "https://xxx.soboredclub.com/api/catalog",
+        "index": "vue_storefront_catalog_de"
+      },
+      "tax": {
+        "sourcePriceIncludesTax": false,
+        "defaultCountry": "DE",
+        "defaultRegion": "",
+        "calculateServerSide": true
+      },
+      "i18n": {
+        "fullCountryName": "Germany",
+        "fullLanguageName": "German",
+        "defaultLanguage": "DE",
+        "defaultCountry": "DE",
+        "defaultLocale": "de-DE",
+        "currencyCode": "EUR",
+        "currencySign": "EUR",
+        "dateFormat": "HH:mm D-M-YYYY"
+      }
+    },
+    "pl": {
+      "storeCode": "pl",
+      "disabled": false,
+      "storeId": 1,
+      "name": "Polish Store",
+      "url": "/pl",
+      "elasticsearch": {
+        "host": "https://xxx.soboredclub.com/api/catalog",
+        "index": "vue_storefront_catalog_pl"
+      },
+      "tax": {
+        "sourcePriceIncludesTax": false,
+        "defaultCountry": "PL",
+        "defaultRegion": "",
+        "calculateServerSide": true
+      },
+      "i18n": {
+        "fullCountryName": "Poland",
+        "fullLanguageName": "Polish",
+        "defaultCountry": "PL",
+        "defaultLanguage": "PL",
+        "defaultLocale": "pl-PL",
+        "currencyCode": "PLN",
+        "currencySign": "PLN",
+        "dateFormat": "HH:mm D-M-YYYY"
+      }
+    }
+  },
+  "cart": {
+    "synchronize": true,
+    "synchronize_totals": true,
+    "create_endpoint": "https://xxx.soboredclub.com/api/cart/create?token={{token}}",
+    "updateitem_endpoint": "https://xxx.soboredclub.com/api/cart/update?token={{token}}&cartId={{cartId}}",
+    "deleteitem_endpoint": "https://xxx.soboredclub.com/api/cart/delete?token={{token}}&cartId={{cartId}}",
+    "pull_endpoint": "https://xxx.soboredclub.com/api/cart/pull?token={{token}}&cartId={{cartId}}",
+    "totals_endpoint": "https://xxx.soboredclub.com/api/cart/totals?token={{token}}&cartId={{cartId}}",
+    "paymentmethods_endpoint": "https://xxx.soboredclub.com/api/cart/payment-methods?token={{token}}&cartId={{cartId}}",
+    "shippingmethods_endpoint": "https://xxx.soboredclub.com/api/cart/shipping-methods?token={{token}}&cartId={{cartId}}",
+    "shippinginfo_endpoint": "https://xxx.soboredclub.com/api/cart/shipping-information?token={{token}}&cartId={{cartId}}",
+    "collecttotals_endpoint": "https://xxx.soboredclub.com/api/cart/collect-totals?token={{token}}&cartId={{cartId}}",
+    "deletecoupon_endpoint": "https://xxx.soboredclub.com/api/cart/delete-coupon?token={{token}}&cartId={{cartId}}",
+    "applycoupon_endpoint": "https://xxx.soboredclub.com/api/cart/apply-coupon?token={{token}}&cartId={{cartId}}&coupon={{coupon}}"
+  },
+  "products": {
+    "preventConfigurableChildrenDirectAccess": true,
+    "alwaysSyncPlatformPricesOver": false,
+    "clearPricesBeforePlatformSync": false,
+    "waitForPlatformSync": false,
+    "endpoint": "https://xxx.soboredclub.com/api/product",
+    "defaultFilters": [
+      "color",
+      "size",
+      "price"
+    ]
+  },
+  "orders": {
+    "endpoint": "https://xxx.soboredclub.com/api/order"
+  },
+  "images": {
+    "baseUrl": "https://xxx.soboredclub.com/img/"
+  },
+  "users": {
+    "endpoint": "https://xxx.soboredclub.com/api/user",
+    "history_endpoint": "https://xxx.soboredclub.com/api/user/order-history?token={{token}}",
+    "resetPassword_endpoint": "https://xxx.soboredclub.com/api/user/reset-password",
+    "changePassword_endpoint": "https://xxx.soboredclub.com/api/user/change-password?token={{token}}",
+    "login_endpoint": "https://xxx.soboredclub.com/api/user/login",
+    "create_endpoint": "https://xxx.soboredclub.com/api/user/create",
+    "me_endpoint": "https://xxx.soboredclub.com/api/user/me?token={{token}}",
+    "refresh_endpoint": "https://xxx.soboredclub.com/api/user/refresh"
+  },
+  "stock": {
+    "endpoint": "https://xxx.soboredclub.com/api/stock"
+  },
+  "tax": {
+    "defaultCountry": "DE",
+    "defaultRegion": "",
+    "calculateServerSide": true
+  },
+  "i18n": {
+    "defaultCountry": "EN",
+    "defaultLanguage": "EN",
+    "availableLocale": [
+      "en-US",
+      "de-DE",
+      "fr-FR",
+      "es-ES",
+      "nl-NL",
+      "jp-JP",
+      "ru-RU",
+      "it-IT",
+      "pt-BR",
+      "pl-PL"
+    ],
+    "defaultLocale": "en-EN",
+    "currencyCode": "EUR",
+    "currencySign": "EUR",
+    "dateFormat": "HH:mm D/M/YYYY",
+    "fullCountryName": "England",
+    "fullLanguageName": "English"
+  },
+  "mailchimp": {
+    "endpoint": "https://xxx.soboredclub.com/api/ext/mailchimp-subscribe/subscribe"
+  },
+  "registeredExtensions": [
+    "custom_extension",
+    "mailchimp-subscribe",
+    "google-analytics"
+  ],
+  "demomode": false,
+  "theme": "grotesque",
+  "analytics": {
+    "id": "UA-128365410-1"
+  },
+  "query": {
+    "inspirations": {
+      "filter": [
+        {
+          "key": "category.name",
+          "value": {
+            "eq": "Men"
+          }
+        }
+      ]
+    },
+    "newProducts": {
+      "filter": [
+        {
+          "key": "category.name",
+          "value": {
+            "eq": "Default Category"
+          }
+        }
+      ]
+    },
+    "coolBags": {
+      "filter": [
+        {
+          "key": "category.name",
+          "value": {
+            "eq": "Women"
+          }
+        }
+      ]
+    },
+    "bestSellers": {
+      "filter": [
+        {
+          "key": "category.name",
+          "value": {
+            "eq": "Men"
+          }
+        }
+      ]
+    }
+  }
+}
