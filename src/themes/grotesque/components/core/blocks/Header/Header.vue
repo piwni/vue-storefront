@@ -24,16 +24,14 @@
               </template>
             </div>
           </div>
-          <div class="col-xs-2 visible-xs">
-            <search-icon class="p15 icon pointer" />
-          </div>
+          <div class="col-xs-2 visible-xs" />
           <div class="col-md-4 col-xs-4 center-xs pt5">
             <div>
               <logo width="auto" height="41px" mobile-width="auto" mobile-height="24px" />
             </div>
           </div>
           <div class="col-xs-2 visible-xs">
-            <wishlist-icon class="p15 icon pointer" />
+            <search-icon class="p15 icon pointer" />
           </div>
           <div class="col-md-4 col-xs-2 end-xs">
             <div class="inline-flex right-icons">
@@ -166,7 +164,7 @@ header {
   }
 
   .meta-header {
-    background: #eee;
+    background: #f2f2f2;
     color: #333;
     font-size: 13px;
     text-align: right;
@@ -188,7 +186,7 @@ header {
   }
 }
 .icon {
-  opacity: 0.6;
+  opacity: 1;
   &:hover,
   &:focus {
     background-color: $color-icon-hover;

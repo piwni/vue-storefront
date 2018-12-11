@@ -117,7 +117,7 @@ export default {
     }
 
     @media (max-width: 767px) {
-      height: 200px;
+      height: 600px;
     }
   }
   .offer-small {

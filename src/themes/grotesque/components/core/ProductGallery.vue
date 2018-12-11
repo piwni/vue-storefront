@@ -40,7 +40,7 @@
               <slide
                 v-for="images in gallery"
                 :key="images.src">
-                <div class="bg-cl-secondary">
+                <div class="">
                   <img
                     class="product-image inline-flex pointer mw-100"
                     v-lazy="images"
@@ -124,7 +124,7 @@ export default {
   right: 0;
 }
 img {
-  opacity: 0.9;
+  opacity: 1;
   mix-blend-mode: multiply;
   vertical-align: top;
   &:hover {
