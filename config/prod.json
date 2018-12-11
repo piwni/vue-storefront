@@ -147,7 +147,7 @@
     "google-analytics"
   ],
   "demomode": false,
-  "theme": "grotesque",
+  "theme": "sbc",
   "analytics": {
     "id": "UA-128365410-1"
   },
