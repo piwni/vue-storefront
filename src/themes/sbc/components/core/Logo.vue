@@ -4,7 +4,7 @@
       :width="width"
       :height="height"
       src="/assets/logo.svg"
-      alt="Vuestore logo"
+      alt="So Bored Club logo"
     >
   </router-link>
 </template>

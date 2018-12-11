@@ -1,13 +1,19 @@
 <template>
-  <div>
-    <div class="brdr-bottom-1 brdr-cl-primary pb60">
-      <h3 class="cl-accent ml30 mt50 summary-title">
-        {{ $t('Order Summary') }}
-      </h3>
-      <product v-for="product in productsInCart" :key="product.sku" :product="product"/>
-      <div v-if="productsInCart && productsInCart.length" class="checkout bg-cl-secondary pt10 serif cl-accent">
+  <div class="cart-summary-container"
+       :class="[{ 'mobile-expanded': mobileExpanded }]">
+    <div class="brdr-cl-primary pb60">
+      <div class="cart-summary-header-container" @click="mobileExpand">
+        <h3 class="cl-accent mt50 summary-title">
+          {{ $t('Order Summary') }}
 
-        <div v-for="(segment, index) in totals" :key="index" class="row pt15 pb20 pl30 pr55 " v-if="segment.code !== 'grand_total'">
+          <i class="material-icons float-right" v-if="!mobileExpanded">expand_more</i>
+          <i class="material-icons float-right" v-if="mobileExpanded">expand_less</i>
+        </h3>
+      </div>
+      <product v-for="product in productsInCart" :key="product.sku" :product="product"/>
+      <div v-if="productsInCart && productsInCart.length" class="checkout pt10 serif cl-accent">
+
+        <div v-for="(segment, index) in totals" :key="index" class="row pt15 pb20 " v-if="segment.code !== 'grand_total'">
           <div class="col-xs cl-accent">
             {{ segment.title }}
           </div>
@@ -16,7 +22,7 @@
           </div>
         </div>
 
-        <div class="row pt20 pb20 pl30 pr55 weight-400 h3" v-for="(segment, index) in totals" :key="index" v-if="segment.code === 'grand_total'">
+        <div class="row pt20 pb20 weight-400 h3" v-for="(segment, index) in totals" :key="index" v-if="segment.code === 'grand_total'">
           <div class="col-xs">
             {{ segment.title }}
           </div>
@@ -26,7 +32,7 @@
         </div>
       </div>
     </div>
-    <div class="py50 px25">
+    <div class="py50 brdr-top-1" v-if="false">
       <h4 class="h3 m0">
         {{ $t('Safety') }}
       </h4>
@@ -60,6 +66,16 @@ export default {
   components: {
     Product
   },
+  data () {
+    return {
+      mobileExpanded: false
+    }
+  },
+  methods: {
+    mobileExpand () {
+      this.mobileExpanded = !this.mobileExpanded
+    }
+  },
   mixins: [CartSummary]
 }
 </script>
@@ -70,4 +86,56 @@ export default {
       margin-left: 0;
     }
   }
+
+  .cart-summary-container {
+    .cart-summary-header-container {
+      h3 i {
+        display: none;
+      }
+    }
+  }
+  @media (max-width: 991px) {
+    .cart-summary-container {
+      overflow: hidden;
+      max-height: 106px;
+      height: auto;
+      margin-left: 20px;
+      margin-right: 20px;
+
+      &.mobile-expanded {
+        max-height: none;
+      }
+
+      .cart-summary-header-container {
+        cursor: pointer;
+        margin-top: -25px;
+        padding-top: 0;
+        margin-bottom: -45px;
+        padding-bottom: 70px;
+
+        h3 i {
+          margin-top: 2px;
+          font-size: 32px;
+          display: inline-block;
+        }
+      }
+    }
+  }
+  @media (max-width: 767px) {
+    .cart-summary-container {
+      max-height: 83px;
+
+      &.mobile-expanded {
+        max-height: none;
+      }
+
+      .cart-summary-header-container {
+        margin-top: -67px;
+        padding-top: 32px;
+        margin-bottom: -23px;
+        padding-bottom: 23px;
+      }
+    }
+  }
+
 </style>

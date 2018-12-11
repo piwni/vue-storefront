@@ -3,8 +3,8 @@
     <div class="row pl20">
       <div class="col-xs-1 col-sm-2 col-md-1">
         <div
-          class="number-circle lh35 cl-white brdr-circle align-center weight-700"
-          :class="{ 'bg-cl-th-accent' : isActive || isFilled, 'bg-cl-tertiary' : !isFilled && !isActive }"
+          class="number-circle lh35 brdr-circle align-center weight-700"
+          :class="{ 'bg-cl-th-sbc cl-black' : isActive || isFilled, 'bg-cl-tertiary cl-white' : !isFilled && !isActive }"
         >
           1
         </div>
@@ -29,9 +29,9 @@
         </div>
       </div>
     </div>
-    <div class="row pl20" v-if="isActive">
+    <div class="row px20" v-if="isActive">
       <div class="hidden-xs col-sm-2 col-md-1"/>
-      <div class="col-xs-11 col-sm-9 col-md-10">
+      <div class="col-xs-12 col-sm-9 col-md-10">
         <div class="row">
           <base-input
             class="col-xs-12 col-md-6 mb25"
@@ -69,7 +69,7 @@
           />
 
           <base-input
-            class="col-xs-12 mb25"
+            class="col-xs-12 col-md-12 mb25"
             type="email"
             name="email-address"
             :placeholder="$t('Email address *')"
@@ -159,7 +159,7 @@
     </div>
     <div class="row" v-show="isActive">
       <div class="hidden-xs col-sm-2 col-md-1"/>
-      <div class="col-xs-11 col-sm-9 col-md-10">
+      <div class="col-xs-12 col-sm-9 col-md-10">
         <div class="row my30">
           <div class="col-xs-12 col-md-7 px20 button-container">
             <button-full
@@ -174,7 +174,7 @@
             class="col-xs-12 col-md-5 center-xs end-md"
             v-if="!currentUser"
           >
-            <p class="h4 cl-accent">
+            <p class="h5 cl-accent py10">
               {{ $t('or') }}
               <span
                 class="link pointer"
@@ -274,6 +274,12 @@ export default {
 .login-prompt {
   @media (min-width: 1200px) {
     margin-top: 30px;
+  }
+}
+
+h3 {
+  @media (max-width: 767px) {
+    margin-top: -5px;
   }
 }
 </style>

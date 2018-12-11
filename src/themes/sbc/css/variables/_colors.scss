@@ -19,7 +19,8 @@ $colors: (
   buccaneer: #755,
   forest-green: #308c14,
   puerto-rico: #4dba87,
-  mine-shaft: #333
+  mine-shaft: #333,
+  sbc: #ffcf00
 );
 
 // Theme generic colors
@@ -41,7 +42,8 @@ $colors-theme: (
   tertiary: map-get($colors, silver),
   success: map-get($colors, puerto-rico),
   warning: map-get($colors, buccaneer),
-  error: map-get($colors, burnt-sienna)
+  error: map-get($colors, burnt-sienna),
+  sbc: map-get($colors, sbc)
 );
 
 $colors-border: (
@@ -58,5 +60,6 @@ $colors-background: (
     default: map-get($colors, white-smoke),
     hover: map-get($colors, gainsboro)
   ),
-  tertiary: map-get($colors, suva-gray)
+  tertiary: map-get($colors, suva-gray),
+  sbc: map-get($colors, sbc)
 );

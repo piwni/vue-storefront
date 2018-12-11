@@ -34,20 +34,21 @@
           </div>
         </div>
         <div class="row between-xs middle-xs px15 py15" v-if="isCheckoutPage">
-          <div class="col-xs-5 col-md-3 middle-xs">
+          <div class="col-xs-3 col-md-3 middle-xs">
             <div>
               <router-link :to="localizedRoute('/')" class="cl-black links">
-                {{ $t('Return to shopping') }}
+                <i class="material-icons">keyboard_backspace</i>
               </router-link>
             </div>
           </div>
-          <div class="col-xs-2 col-md-6 center-xs">
-            <logo height="26px"/>
+          <div class="col-xs-6 col-md-6 center-xs">
+            <logo width="auto" height="26px" class="hidden-xs" />
+            <logo width="auto" height="18px" class="visible-xs" />
           </div>
-          <div class="col-xs-5 col-md-3 end-xs">
+          <div class="col-xs-3 col-md-3 end-xs">
             <div>
               <a v-if="!currentUser" href="#" @click.prevent="gotoAccount" class="cl-black links">
-                {{ $t('Login to your account') }}
+                {{ $t('Login') }}
               </a>
               <span v-else>
                 {{ $t('You are logged in as') }} {{ currentUser.firstname }}
