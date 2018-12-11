@@ -12,7 +12,7 @@ export function price (value) {
   const storeView = currentStoreView()
 
   const prependCurrency = (price) => {
-    return storeView.i18n.currencySign + price
+    return storeView.i18n.currencySign + ' ' + price
   }
 
   const appendCurrency = (price) => {

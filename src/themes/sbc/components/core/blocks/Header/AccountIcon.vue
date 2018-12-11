@@ -7,7 +7,7 @@
       class="bg-cl-transparent brdr-none p0"
       :aria-label="$t('Open my account')"
     >
-      <i class="material-icons block">account_circle</i>
+      <i class="icon-user" />
     </button>
     <div v-if="currentUser" class="dropdown-content bg-cl-primary align-left sans-serif lh20 weight-400">
       <div class="py5">
@@ -68,6 +68,8 @@ $color-icon-hover: color(secondary, $colors-background);
 
   button {
     pointer-events: none;
+    height: 54px;
+    width: 54px;
   }
 
   .dropdown-content {
@@ -97,5 +99,9 @@ $color-icon-hover: color(secondary, $colors-background);
     }
   }
 
+}
+
+i {
+  font-size: 36px;
 }
 </style>

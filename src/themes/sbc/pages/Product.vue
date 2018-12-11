@@ -196,13 +196,10 @@
         </div>
       </div>
     </section>
-    <reviews v-show="OnlineOnly"/>
     <related-products
       type="upsell"
       :heading="$t('We found other products you might like')"
     />
-    <promoted-offers single-banner />
-    <related-products type="related" />
   </div>
 </template>
 

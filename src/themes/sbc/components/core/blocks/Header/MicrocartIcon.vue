@@ -6,9 +6,9 @@
     data-testid="openMicrocart"
     :aria-label="$t('Open microcart')"
   >
-    <i class="material-icons">shopping_cart</i>
+    <i class="icon-bag" />
     <span
-      class="minicart-count absolute flex center-xs middle-xs border-box py0 px2 h6 lh16 weight-700 cl-white bg-cl-silver"
+      class="minicart-count absolute flex center-xs middle-xs border-box py0 px2 h6 lh16 weight-700 cl-white bg-cl-black"
       v-cloak
       v-if="totalQuantity"
       data-testid="minicartCount"
@@ -27,11 +27,20 @@ export default {
 </script>
 
 <style scoped>
-  .minicart-count {
-    top: 7px;
-    left: 50%;
-    min-width: 16px;
-    min-height: 16px;
-    border-radius: 10px;
-  }
+.minicart-count {
+  top: 7px;
+  left: 50%;
+  min-width: 16px;
+  min-height: 16px;
+  border-radius: 10px;
+}
+i {
+  font-size: 36px;
+  position: relative;
+  left: 3px;
+}
+button {
+  height: 54px;
+  width: 54px;
+}
 </style>

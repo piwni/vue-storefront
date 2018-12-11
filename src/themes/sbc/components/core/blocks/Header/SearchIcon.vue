@@ -6,7 +6,7 @@
     @click="toggleSearchpanel"
     data-testid="openSearchPanel"
   >
-    <i class="material-icons">search</i>
+    <i class="icon-search" />
   </button>
 </template>
 
@@ -17,3 +17,15 @@ export default {
   mixins: [SearchIcon]
 }
 </script>
+
+<style scoped>
+i {
+  font-size: 36px;
+  position: relative;
+  left: 2px;
+}
+button {
+  height: 54px;
+  width: 54px;
+}
+</style>

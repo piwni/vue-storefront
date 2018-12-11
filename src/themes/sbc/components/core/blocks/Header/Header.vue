@@ -1,56 +1,52 @@
 <template>
   <div class="header">
     <header
-      class="fixed w-100 brdr-bottom-1 bg-cl-primary brdr-cl-secondary"
+      class="fixed w-100 bg-cl-primary"
       :class="{ 'is-visible': navVisible }"
     >
       <div class="container px15">
         <div class="row between-xs middle-xs" v-if="!isCheckoutPage">
-          <div class="col-md-4 col-xs-2 middle-xs">
+          <div class="col-sm-4 col-xs-2 middle-xs">
             <div>
               <template v-if="!canGoBack">
-                <hamburger-icon class="p15 icon bg-cl-secondary pointer" v-if="!canGoBack"/>
+                <hamburger-icon class="p15 icon pointer" v-if="!canGoBack"/>
               </template>
               <template v-else>
-                <return-icon class="p15 icon bg-cl-secondary pointer" v-if="canGoBack"/>
+                <return-icon class="p15 icon bg-cl-transparent pointer" v-if="canGoBack"/>
               </template>
             </div>
           </div>
-          <div class="col-xs-2 visible-xs">
-            <search-icon class="p15 icon pointer" />
-          </div>
-          <div class="col-md-4 col-xs-4 center-xs pt5">
+          <div class="col-sm-4 col-xs-4 center-xs pt5">
             <div>
-              <logo width="auto" height="41px"/>
+              <logo width="auto" height="26px" class="hidden-xs" />
+              <logo width="auto" height="18px" class="visible-xs" />
             </div>
           </div>
           <div class="col-xs-2 visible-xs">
-            <wishlist-icon class="p15 icon pointer" />
+            <search-icon class="p9 icon pointer" />
           </div>
-          <div class="col-md-4 col-xs-2 end-xs">
+          <div class="col-sm-4 col-xs-2 end-xs">
             <div class="inline-flex right-icons">
-              <search-icon class="p15 icon hidden-xs pointer" />
-              <wishlist-icon class="p15 icon hidden-xs pointer" />
-              <compare-icon class="p15 icon hidden-xs pointer" />
-              <microcart-icon class="p15 icon pointer" />
-              <account-icon class="p15 icon hidden-xs pointer" />
+              <search-icon class="p9 icon hidden-xs pointer" />
+              <microcart-icon class="p9 icon pointer" />
+              <account-icon class="p9 icon hidden-xs pointer" />
             </div>
           </div>
         </div>
-        <div class="row between-xs middle-xs px15 py5" v-if="isCheckoutPage">
+        <div class="row between-xs middle-xs px15 py15" v-if="isCheckoutPage">
           <div class="col-xs-5 col-md-3 middle-xs">
             <div>
-              <router-link :to="localizedRoute('/')" class="cl-tertiary links">
+              <router-link :to="localizedRoute('/')" class="cl-black links">
                 {{ $t('Return to shopping') }}
               </router-link>
             </div>
           </div>
           <div class="col-xs-2 col-md-6 center-xs">
-            <logo width="auto" height="41px"/>
+            <logo height="26px"/>
           </div>
           <div class="col-xs-5 col-md-3 end-xs">
             <div>
-              <a v-if="!currentUser" href="#" @click.prevent="gotoAccount" class="cl-tertiary links">
+              <a v-if="!currentUser" href="#" @click.prevent="gotoAccount" class="cl-black links">
                 {{ $t('Login to your account') }}
               </a>
               <span v-else>
@@ -137,7 +133,6 @@ export default {
 <style lang="scss" scoped>
 @import '~theme/css/variables/colors';
 @import '~theme/css/helpers/functions/color';
-$color-icon-hover: color(secondary, $colors-background);
 
 header {
   height: 54px;
@@ -149,16 +144,17 @@ header {
   }
 }
 .icon {
-  opacity: 0.6;
+  opacity: 1;
   &:hover,
   &:focus {
-    background-color: $color-icon-hover;
+    background-color: rgba(0,0,0,0.1);
     opacity: 1;
   }
 }
 .right-icons {
   //for edge
   float: right;
+  height: 54px;
 }
 .header-placeholder {
   height: 54px;
