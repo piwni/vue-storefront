@@ -2,15 +2,15 @@
   <div>
     <ul
       v-if="categoryLinks"
-      class="sidebar-submenu absolute w-100 p0 bg-cl-primary"
+      class="sidebar-submenu absolute w-100 p0"
       :style="styles"
     >
       <li
-        class="brdr-bottom-1 brdr-cl-bg-secondary bg-cl-primary flex"
+        class="flex"
         v-if="parentSlug"
       >
         <router-link
-          class="px25 py20 cl-accent no-underline col-xs"
+          class="px25 py20 cl-black no-underline col-xs"
           :to="localizedRoute({ name: 'category', params: { id: id, slug: parentSlug }})"
           data-testid="categoryLink"
         >
@@ -18,7 +18,7 @@
         </router-link>
       </li>
       <li
-        class="brdr-bottom-1 brdr-cl-bg-secondary bg-cl-primary flex"
+        class="flex"
         :key="link.slug"
         v-for="link in categoryLinks"
       >
@@ -49,19 +49,19 @@
       :style="styles"
     >
       <li
-        class="brdr-bottom-1 brdr-cl-bg-secondary bg-cl-primary flex"
+        class="flex"
         :key="link.id"
         v-for="link in myAccountLinks"
         @click="notify(link.name)"
       >
         <router-link
-          class="px25 py20 cl-accent no-underline col-xs"
+          class="px25 py20 cl-black no-underline col-xs"
           :to="localizedRoute(link.url)"
         >
           {{ link.name }}
         </router-link>
       </li>
-      <li class="brdr-bottom-1 brdr-cl-bg-secondary bg-cl-primary flex">
+      <li class="flex">
         <a href="#" class="px25 py20 cl-accent no-underline col-xs" @click.prevent="logout">
           {{ $t('Logout') }}
         </a>

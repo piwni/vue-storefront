@@ -4,9 +4,8 @@ import ErrorPage from 'theme/pages/Error.vue'
 import store from '@vue-storefront/store'
 import Product from 'theme/pages/Product.vue'
 import Category from 'theme/pages/Category.vue'
-import { Compare, Checkout, MyAccount, Static, CustomCmsPage, CmsData } from './asyncRoutes'
+import { Checkout, MyAccount, Static } from './asyncRoutes'
 import CmsPage from 'theme/pages/CmsPage.vue'
-import CmsBlockDemoPageSsr from 'theme/pages/CmsBlockDemoPageSsr.vue'
 
 let routes = [
   { name: 'home', path: '/', component: Home, alias: '/pwa.html' },
@@ -22,20 +21,11 @@ let routes = [
   { name: 'my-orders', path: '/my-account/orders', component: MyAccount, props: {activeBlock: 'MyOrders'} },
   { name: 'my-order', path: '/my-account/orders/:orderId', component: MyAccount, props: {activeBlock: 'MyOrder'} },
   { name: 'my-recently-viewed', path: '/my-account/recently-viewed', component: MyAccount, props: {activeBlock: 'MyRecentlyViewed'} },
-  { name: 'customer-service', path: '/customer-service', component: Static, props: {page: 'lorem', title: 'Customer service'} },
-  { name: 'store-locator', path: '/store-locator', component: Static, props: {page: 'lorem', title: 'Store locator'} },
-  { name: 'size-guide', path: '/size-guide', component: Static, props: {page: 'lorem', title: 'Size guide'} },
-  { name: 'gift-card', path: '/gift-card', component: Static, props: {page: 'lorem', title: 'Gift card'} },
-  { name: 'delivery', path: '/delivery', component: Static, props: {page: 'lorem', title: 'Delivery'} },
-  { name: 'returns', path: '/returns', component: Static, props: {page: 'lorem', title: 'Returns policy'} },
+
   { name: 'order-from-catalog', path: '/order-from-catalog', component: Static, props: {page: 'lorem', title: 'Order from catalog'} },
   { name: 'contact', path: '/contact', component: Static, props: {page: 'contact', title: 'Contact'} },
-  { name: 'compare', path: '/compare', component: Compare, props: {title: 'Compare Products'} },
   { name: 'page-not-found', path: '/page-not-found', component: PageNotFound },
-  { name: 'error', path: '/error', component: ErrorPage, meta: { layout: 'minimal' } },
-  { name: 'custom-cms-page', path: '/custom-cms-page', component: CustomCmsPage },
-  { name: 'cms-block-demo-page-ssr', path: '/cms-block-demo-page-ssr', component: CmsBlockDemoPageSsr },
-  { name: 'cms-page-sync', path: '/cms-page-sync', component: CmsData, props: {identifier: 'about-us', type: 'Page', sync: true} }
+  { name: 'error', path: '/error', component: ErrorPage, meta: { layout: 'minimal' } }
 ]
 if (!store.state.config.products.useShortCatalogUrls) {
   routes = routes.concat([{ name: 'virtual-product', path: '/p/:parentSku/:slug', component: Product }, // :sku param can be marked as optional with ":sku?" (https://github.com/vuejs/vue-router/blob/dev/examples/route-matching/app.js#L16), but it requires a lot of work to adjust the rest of the site

@@ -33,7 +33,16 @@ export default {
       required: false
     }
   },
-  created () {
+  mounted () {
+    this.$store.dispatch(
+      'cms/loadCms',
+      {
+        url: this.getEndpointPath(),
+        type: this.type
+      }
+    )
+  },
+  updated () {
     this.$store.dispatch(
       'cms/loadCms',
       {

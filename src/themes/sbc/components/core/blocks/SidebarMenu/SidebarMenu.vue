@@ -1,14 +1,14 @@
 <template>
-  <div class="sidebar-menu absolute mw-100 bg-cl-secondary" :class="{ active: isOpen }">
-    <div class="row brdr-bottom-1 brdr-cl-bg-secondary">
-      <div class="col-xs bg-cl-primary" v-if="submenu.depth">
+  <div class="sidebar-menu absolute mw-100 bg-cl-sbc" :class="{ active: isOpen }">
+    <div class="row brdr-bottom-1 brdr-cl-bg-sbc">
+      <div class="col-xs" v-if="submenu.depth">
         <sub-btn type="back" class="bg-cl-transparent brdr-none" />
       </div>
-      <div class="col-xs bg-cl-primary">
+      <div class="col-xs">
         <button
           type="button"
           :aria-label="$t('Close')"
-          class="w-100 inline-flex end-xs bg-cl-transparent brdr-none p0 close-btn"
+          class="w-100 inline-flex end-xs bg-cl-transparent brdr-none p0 close-btn cl-black"
           @click="closeMenu"
         >
           <i class="material-icons p15">close</i>
@@ -18,9 +18,9 @@
     <div class="row">
       <div class="col-xs-12 h4 serif">
         <ul class="p0 m0 relative sidebar-menu__list" :style="mainListStyles">
-          <li @click="closeMenu" clatasss="brdr-bottom-1 brdr-cl-bg-secondary bg-cl-primary">
+          <li @click="closeMenu" clatasss="brdr-bottom-1">
             <router-link
-              class="block px25 py20 cl-accent no-underline"
+              class="block px25 py20 cl-black no-underline"
               :to="localizedRoute('/')"
               exact
             >
@@ -28,7 +28,7 @@
             </router-link>
           </li>
           <li
-            class="brdr-bottom-1 brdr-cl-bg-secondary bg-cl-primary flex"
+            class="flex"
             :key="category.slug"
             @click="closeMenu"
             v-for="category in categories"
@@ -43,7 +43,7 @@
             />
             <router-link
               v-else
-              class="px25 py20 cl-accent no-underline col-xs"
+              class="px25 py20 cl-black no-underline col-xs"
               :to="localizedRoute({ name: 'category', params: { id: category.id, slug: category.slug }})"
             >
               {{ category.name }}
@@ -58,7 +58,7 @@
           </li>
           <li @click="closeMenu">
             <router-link
-              class="block px25 py20 brdr-bottom-1 brdr-cl-secondary cl-accent no-underline fs-medium-small"
+              class="block px25 py20 cl-accent no-underline fs-medium-small"
               :to="localizedRoute('/sale')"
               exact
             >
@@ -67,7 +67,7 @@
           </li>
           <li @click="closeMenu">
             <router-link
-              class="block px25 py20 brdr-bottom-1 brdr-cl-secondary cl-accent no-underline fs-medium-small"
+              class="block px25 py20 cl-accent no-underline fs-medium-small"
               :to="localizedRoute('/magazine')"
               exact
             >
@@ -76,7 +76,7 @@
           </li>
           <li @click="closeMenu" v-if="compareIsActive">
             <router-link
-              class="block px25 py20 brdr-bottom-1 brdr-cl-secondary cl-accent no-underline fs-medium-small"
+              class="block px25 py20 cl-accent no-underline fs-medium-small"
               :to="localizedRoute('/compare')"
               exact
             >
@@ -85,14 +85,14 @@
           </li>
           <li @click="closeMenu">
             <router-link
-              class="block px25 py20 brdr-bottom-1 brdr-cl-secondary cl-accent no-underline fs-medium-small"
+              class="block px25 py20 cl-accent no-underline fs-medium-small"
               :to="localizedRoute('/order-tracking')"
               exact
             >
               {{ $t('Track my order') }}
             </router-link>
           </li>
-          <li @click="closeMenu" class="brdr-bottom-1 brdr-cl-secondary flex">
+          <li @click="closeMenu" class="flex">
             <sub-btn
               v-if="currentUser"
               :name="$t('My account')"
@@ -195,6 +195,7 @@ $bg-secondary: color(secondary, $colors-background);
 $color-gainsboro: color(gainsboro);
 $color-matterhorn: color(matterhorn);
 $color-mine-shaft: color(mine-shaft);
+$transparent-black: color(transparent-black);
 
 .sidebar-menu {
   height: 100vh;
@@ -226,28 +227,32 @@ $color-mine-shaft: color(mine-shaft);
   li {
     &:hover,
     &:focus {
-      background-color: $color-gainsboro;
+      background-color: $transparent-black;
     }
     &.bg-cl-primary {
       &:hover,
       &:focus {
-        background-color: $bg-secondary;
+        background-color: $transparent-black;
       }
     }
     a {
-      color: $color-mine-shaft;
+      color: black;
     }
   }
 
   button {
-    color: $color-mine-shaft;a {
-      color: $color-mine-shaft;
+    color: black;
+    a {
+      color: black;
+    }
+    i {
+      color: black;
     }
   }
 
   .close-btn {
     i {
-      color: $color-gainsboro;
+      color: black;
     }
     &:hover,
     &:focus {

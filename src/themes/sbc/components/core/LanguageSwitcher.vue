@@ -1,7 +1,7 @@
 <template>
   <div>
     <a href="#" class="store-locale" @click.prevent="$bus.$emit('modal-show', 'modal-switcher')">
-      {{ country }} / {{ lang }} / {{ currency }}
+      {{ country }}
     </a>
   </div>
 </template>
@@ -13,7 +13,7 @@ export default {
   data () {
     const storeView = currentStoreView()
     return {
-      country: storeView.i18n.defaultCountry,
+      country: storeView.i18n.fullCountryName,
       lang: storeView.i18n.defaultLanguage,
       currency: storeView.i18n.currencyCode
     }

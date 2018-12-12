@@ -23,3 +23,13 @@ a {
 .no-scroll {
   overflow: hidden;
 }
+
+table {
+  border-collapse: collapse;
+  tr {
+    td {
+      border: 1px solid #ccc;
+      padding: 15px;
+    }
+  }
+}

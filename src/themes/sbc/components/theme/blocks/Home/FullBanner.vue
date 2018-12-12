@@ -116,9 +116,6 @@ a.container {
   .main-banner {
     height: 359px;
   }
-  .container {
-    background-position: left;
-  }
   .title {
     font-size: 48px;
   }
