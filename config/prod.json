@@ -117,6 +117,19 @@
     "calculateServerSide": true,
     "sourcePriceIncludesTax": true
   },
+  "shipping": {
+    "methods": [
+      {
+        "method_title": "UPS Courier",
+        "method_code": "freeshipping",
+        "carrier_code": "freeshipping",
+        "amount": 0,
+        "price_incl_tax": 0,
+        "default": true,
+        "offline": true
+      }
+    ]
+  },
   "i18n": {
     "defaultCountry": "EN",
     "defaultLanguage": "EN",
@@ -168,7 +181,7 @@
         {
           "key": "category.name",
           "value": {
-            "eq": "Default Category"
+            "eq": "SBC"
           }
         }
       ]

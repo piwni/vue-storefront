@@ -1,0 +1,20 @@
+{
+  "mainBanners": [
+  ],
+  "smallBanners": [
+    {
+      "title": "Shop Men",
+      "subtitle": "Bestsellers",
+      "image": "/assets/home/mens_collection_sbc.jpg",
+      "link": "/c/mczyzna-3"
+    },
+    {
+      "title": "Shop Women",
+      "subtitle": "Bestsellers",
+      "image": "/assets/home/womens_collection_sbc.jpg",
+      "link": "/c/kobieta-4"
+    }
+  ],
+  "productBanners": [
+  ]
+}

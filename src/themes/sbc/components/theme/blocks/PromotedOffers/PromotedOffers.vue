@@ -70,6 +70,9 @@
 <script>
 import { mapGetters, mapActions } from 'vuex'
 import promotedOffers from 'theme/resource/promoted_offers.json'
+import promotedOffersDE from 'theme/resource/promoted_offers_de.json'
+import promotedOffersPL from 'theme/resource/promoted_offers_pl.json'
+import { currentStoreView } from '@vue-storefront/store/lib/multistore'
 
 export default {
   name: 'PromotedOffers',
@@ -86,7 +89,15 @@ export default {
     })
   },
   created () {
-    this.updatePromotedOffers(promotedOffers)
+    const storeView = currentStoreView()
+
+    if (storeView.i18n.defaultLanguage === 'DE') {
+      this.updatePromotedOffers(promotedOffersDE)
+    } else if (storeView.i18n.defaultLanguage === 'PL') {
+      this.updatePromotedOffers(promotedOffersPL)
+    } else {
+      this.updatePromotedOffers(promotedOffers)
+    }
   },
   methods: {
     ...mapActions({
