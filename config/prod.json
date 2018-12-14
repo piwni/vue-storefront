@@ -21,7 +21,7 @@
         "index": "vue_storefront_catalog_de"
       },
       "tax": {
-        "sourcePriceIncludesTax": false,
+        "sourcePriceIncludesTax": true,
         "defaultCountry": "DE",
         "defaultRegion": "",
         "calculateServerSide": true
@@ -48,7 +48,7 @@
         "index": "vue_storefront_catalog_pl"
       },
       "tax": {
-        "sourcePriceIncludesTax": false,
+        "sourcePriceIncludesTax": true,
         "defaultCountry": "PL",
         "defaultRegion": "",
         "calculateServerSide": true
@@ -114,7 +114,8 @@
   "tax": {
     "defaultCountry": "EN",
     "defaultRegion": "",
-    "calculateServerSide": true
+    "calculateServerSide": true,
+    "sourcePriceIncludesTax": true
   },
   "i18n": {
     "defaultCountry": "EN",
@@ -137,6 +138,19 @@
     "dateFormat": "HH:mm D/M/YYYY",
     "fullCountryName": "England",
     "fullLanguageName": "English"
+  },
+  "shipping": {
+    "methods": [
+      {
+        "method_title": "UPS Courier",
+        "method_code": "freeshipping",
+        "carrier_code": "freeshipping",
+        "amount": 0,
+        "price_incl_tax": 0,
+        "default": true,
+        "offline": true
+      }
+    ]
   },
   "mailchimp": {
     "endpoint": "https://grotesque.store/api/ext/mailchimp-subscribe/subscribe"
