@@ -42,6 +42,15 @@ export default {
       }
     )
   },
+  updated () {
+    this.$store.dispatch(
+      'cms/loadCms',
+      {
+        url: this.getEndpointPath(),
+        type: this.type
+      }
+    )
+  },
   computed: {
     data () {
       if (this.id) {

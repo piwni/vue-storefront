@@ -13,46 +13,11 @@
           >
             <div class="start-md">
               <h3 class="cl-accent weight-400">
-                {{ $t('Departments') }}
+                {{ $t('Help') }}
               </h3>
               <div class="mt15">
-                <router-link class="cl-secondary" :to="localizedRoute('/c/women-20')" exact>
-                  {{ $t('Women fashion') }}
-                </router-link>
-              </div>
-              <div class="mt15">
-                <router-link class="cl-secondary" :to="localizedRoute('/c/men-11')" exact>
-                  {{ $t("Men's fashion") }}
-                </router-link>
-              </div>
-              <div class="mt15">
-                <router-link class="cl-secondary" :to="localizedRoute('/')" exact>
-                  {{ $t('Kidswear') }}
-                </router-link>
-              </div>
-              <div class="mt15">
-                <router-link class="cl-secondary" :to="localizedRoute('/')" exact>
-                  {{ $t('Home') }}
-                </router-link>
-              </div>
-            </div>
-            <div class="start-md">
-              <h3 class="cl-accent weight-400">
-                {{ $t('Orders') }}
-              </h3>
-              <div class="mt15">
-                <router-link class="cl-secondary" :to="localizedRoute('/order-tracking')" exact>
-                  {{ $t('Track my order') }}
-                </router-link>
-              </div>
-              <div class="mt15">
-                <router-link class="cl-secondary" :to="localizedRoute('/my-account')" exact>
-                  {{ $t('My account') }}
-                </router-link>
-              </div>
-              <div class="mt15">
-                <router-link class="cl-secondary" :to="localizedRoute('/delivery')" exact>
-                  {{ $t('Delivery') }}
+                <router-link class="cl-secondary" :to="localizedRoute('/about-us')" exact>
+                  {{ $t('About us') }}
                 </router-link>
               </div>
               <div class="mt15">
@@ -60,14 +25,19 @@
                   {{ $t('Return policy') }}
                 </router-link>
               </div>
-            </div>
-            <div class="start-md">
-              <h3 class="cl-accent weight-400">
-                {{ $t('Help') }}
-              </h3>
               <div class="mt15">
-                <router-link class="cl-secondary" :to="localizedRoute('/customer-service')" exact>
-                  {{ $t('Customer service') }}
+                <router-link class="cl-secondary" :to="localizedRoute('/terms-and-conditions')" exact>
+                  {{ $t('Terms and conditions') }}
+                </router-link>
+              </div>
+              <div class="mt15">
+                <router-link class="cl-secondary" :to="localizedRoute('/privacy-policy')" exact>
+                  {{ $t('Privacy policy') }}
+                </router-link>
+              </div>
+              <div class="mt15">
+                <router-link class="cl-secondary" :to="localizedRoute('/faq')" exact>
+                  {{ $t('FAQ') }}
                 </router-link>
               </div>
               <div class="mt15">
@@ -75,24 +45,20 @@
                   {{ $t('Size guide') }}
                 </router-link>
               </div>
-              <div class="mt15">
-                <router-link class="cl-secondary" :to="localizedRoute('/contact')" exact>
-                  {{ $t('Contact us') }}
-                </router-link>
-              </div>
             </div>
             <div class="start-md">
               <h3 class="cl-accent weight-400">
-                {{ $t('About us') }}
+                {{ $t('Collections') }}
               </h3>
-              <div class="mt15">
-                <router-link class="cl-secondary" :to="localizedRoute('/i/about-us')" exact>
-                  {{ $t('About us (Magento CMS)') }}
-                </router-link>
-              </div>
-              <div class="mt15">
-                <router-link class="cl-secondary" :to="localizedRoute('/store-locator')" exact>
-                  {{ $t('Store locator') }}
+              <div class="mt15"
+                   v-for="category in categories"
+                   :key="category.slug"
+                   v-if="category.product_count > 0 || category.children_data.length > 0">
+                <router-link
+                  class="cl-secondary"
+                  :to="localizedRoute({ name: 'category', params: { id: category.id, slug: category.slug }})"
+                >
+                  {{ category.name }}
                 </router-link>
               </div>
             </div>
@@ -165,6 +131,11 @@ export default {
   computed: {
     multistoreEnabled () {
       return this.$store.state.config.storeViews.multistore
+    },
+    categories () {
+      return this.$store.state.category.list.filter((op) => {
+        return op.level === 2 // display only the root level (level =1 => Default Category)
+      })
     }
   },
   components: {
