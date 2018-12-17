@@ -42,7 +42,8 @@ export const Payment = {
       }
     }
     this.changePaymentMethod()
-  },
+    this.useShippingAddress()
+ },
   methods: {
     sendDataToCheckout () {
       this.$bus.$emit('checkout-after-paymentDetails', this.payment, this.$v)
