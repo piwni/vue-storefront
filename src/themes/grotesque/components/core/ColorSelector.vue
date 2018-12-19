@@ -18,6 +18,19 @@ export default {
   mixins: [GenericSelector],
   methods: {
     colorFrom (label) {
+      let colorMatch = {
+        'Czarny': 'Black',
+        'Zielony': 'Green',
+        'Czerwony': 'Red',
+        'Szary': 'Grey',
+        'Beżowy': 'Beige',
+        'Złoty': 'Gold'
+      }
+
+      if (colorMatch[label]) {
+        label = colorMatch[label]
+      }
+
       if (label && label.toString().indexOf(',') >= 0) {
         return 'background: linear-gradient(' + label + ')'
       } else {

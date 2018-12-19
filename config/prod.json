@@ -1,0 +1,211 @@
+{
+  "elasticsearch": {
+    "httpAuth": "",
+    "host": "https://grotesque.store/api/catalog",
+    "index": "vue_storefront_catalog"
+  },
+  "storeViews": {
+    "mapStoreUrlsFor": [
+      "de",
+      "pl"
+    ],
+    "multistore": true,
+    "de": {
+      "storeCode": "de",
+      "disabled": false,
+      "storeId": 2,
+      "name": "German Store",
+      "url": "/de",
+      "elasticsearch": {
+        "host": "https://grotesque.store/api/catalog",
+        "index": "vue_storefront_catalog_de"
+      },
+      "tax": {
+        "sourcePriceIncludesTax": true,
+        "defaultCountry": "DE",
+        "defaultRegion": "",
+        "calculateServerSide": true
+      },
+      "i18n": {
+        "fullCountryName": "Germany",
+        "fullLanguageName": "German",
+        "defaultLanguage": "DE",
+        "defaultCountry": "DE",
+        "defaultLocale": "de-DE",
+        "currencyCode": "EUR",
+        "currencySign": "EUR",
+        "dateFormat": "HH:mm D-M-YYYY"
+      }
+    },
+    "pl": {
+      "storeCode": "pl",
+      "disabled": false,
+      "storeId": 3,
+      "name": "Polish Store",
+      "url": "/pl",
+      "elasticsearch": {
+        "host": "https://grotesque.store/api/catalog",
+        "index": "vue_storefront_catalog_pl"
+      },
+      "tax": {
+        "sourcePriceIncludesTax": true,
+        "defaultCountry": "PL",
+        "defaultRegion": "",
+        "calculateServerSide": true
+      },
+      "i18n": {
+        "fullCountryName": "Poland",
+        "fullLanguageName": "Polish",
+        "defaultCountry": "PL",
+        "defaultLanguage": "PL",
+        "defaultLocale": "pl-PL",
+        "currencyCode": "EUR",
+        "currencySign": "EUR",
+        "dateFormat": "HH:mm D-M-YYYY"
+      }
+    }
+  },
+  "cart": {
+    "multisiteCommonCart": true,
+    "synchronize": true,
+    "synchronize_totals": true,
+    "create_endpoint": "https://grotesque.store/api/cart/create?token={{token}}",
+    "updateitem_endpoint": "https://grotesque.store/api/cart/update?token={{token}}&cartId={{cartId}}",
+    "deleteitem_endpoint": "https://grotesque.store/api/cart/delete?token={{token}}&cartId={{cartId}}",
+    "pull_endpoint": "https://grotesque.store/api/cart/pull?token={{token}}&cartId={{cartId}}",
+    "totals_endpoint": "https://grotesque.store/api/cart/totals?token={{token}}&cartId={{cartId}}",
+    "paymentmethods_endpoint": "https://grotesque.store/api/cart/payment-methods?token={{token}}&cartId={{cartId}}",
+    "shippingmethods_endpoint": "https://grotesque.store/api/cart/shipping-methods?token={{token}}&cartId={{cartId}}",
+    "shippinginfo_endpoint": "https://grotesque.store/api/cart/shipping-information?token={{token}}&cartId={{cartId}}",
+    "collecttotals_endpoint": "https://grotesque.store/api/cart/collect-totals?token={{token}}&cartId={{cartId}}",
+    "deletecoupon_endpoint": "https://grotesque.store/api/cart/delete-coupon?token={{token}}&cartId={{cartId}}",
+    "applycoupon_endpoint": "https://grotesque.store/api/cart/apply-coupon?token={{token}}&cartId={{cartId}}&coupon={{coupon}}"
+  },
+  "products": {
+    "preventConfigurableChildrenDirectAccess": true,
+    "alwaysSyncPlatformPricesOver": false,
+    "clearPricesBeforePlatformSync": false,
+    "waitForPlatformSync": false,
+    "endpoint": "https://grotesque.store/api/product",
+    "defaultFilters": [
+      "color",
+      "size",
+      "price"
+    ]
+  },
+  "orders": {
+    "endpoint": "https://grotesque.store/api/order"
+  },
+  "images": {
+    "baseUrl": "https://grotesque.store/img/"
+  },
+  "users": {
+    "endpoint": "https://grotesque.store/api/user",
+    "history_endpoint": "https://grotesque.store/api/user/order-history?token={{token}}",
+    "resetPassword_endpoint": "https://grotesque.store/api/user/reset-password",
+    "changePassword_endpoint": "https://grotesque.store/api/user/change-password?token={{token}}",
+    "login_endpoint": "https://grotesque.store/api/user/login",
+    "create_endpoint": "https://grotesque.store/api/user/create",
+    "me_endpoint": "https://grotesque.store/api/user/me?token={{token}}",
+    "refresh_endpoint": "https://grotesque.store/api/user/refresh"
+  },
+  "stock": {
+    "endpoint": "https://grotesque.store/api/stock"
+  },
+  "tax": {
+    "defaultCountry": "DE",
+    "defaultRegion": "",
+    "sourcePriceIncludesTax": true,
+    "calculateServerSide": true
+  },
+  "shipping": {
+    "methods": [
+      {
+        "method_title": "UPS Courier",
+        "method_code": "flatrate",
+        "carrier_code": "flatrate",
+        "amount": 0,
+        "price_incl_tax": 0,
+        "default": true,
+        "offline": true
+      }
+    ]
+  },
+  "i18n": {
+    "defaultCountry": "EN",
+    "defaultLanguage": "EN",
+    "availableLocale": [
+      "en-US",
+      "de-DE",
+      "fr-FR",
+      "es-ES",
+      "nl-NL",
+      "jp-JP",
+      "ru-RU",
+      "it-IT",
+      "pt-BR",
+      "pl-PL"
+    ],
+    "defaultLocale": "en-EN",
+    "currencyCode": "EUR",
+    "currencySign": "EUR",
+    "dateFormat": "HH:mm D/M/YYYY",
+    "fullCountryName": "England",
+    "fullLanguageName": "English"
+  },
+  "mailchimp": {
+    "endpoint": "https://grotesque.store/api/ext/mailchimp-subscribe/subscribe"
+  },
+  "registeredExtensions": [
+    "custom_extension",
+    "mailchimp-subscribe",
+    "google-analytics"
+  ],
+  "demomode": false,
+  "theme": "grotesque",
+  "analytics": {
+    "id": "UA-128365410-1"
+  },
+  "query": {
+    "inspirations": {
+      "filter": [
+        {
+          "key": "category.name",
+          "value": {
+            "eq": "Sets"
+          }
+        }
+      ]
+    },
+    "newProducts": {
+      "filter": [
+        {
+          "key": "category.name",
+          "value": {
+            "eq": "Grotesque"
+          }
+        }
+      ]
+    },
+    "coolBags": {
+      "filter": [
+        {
+          "key": "category.name",
+          "value": {
+            "eq": "Sets"
+          }
+        }
+      ]
+    },
+    "bestSellers": {
+      "filter": [
+        {
+          "key": "category.name",
+          "value": {
+            "eq": "Tees"
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,6 +1,6 @@
 <template>
   <div id="home">
-    <full-banner image="/assets/home/banner_0.jpg" link="c/grotesque-2" :title="$t('New collection')" :button_text="$t('Shop now')" />
+    <full-banner image="/assets/home/banner_0.jpg" link="/c/grotesque-2" :title="$t('New collection')" :button_text="$t('Shop now')" />
 
     <promoted-offers/>
 
