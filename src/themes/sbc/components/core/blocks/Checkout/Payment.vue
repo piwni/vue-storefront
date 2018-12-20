@@ -268,7 +268,7 @@
             <button-full
               @click.native="sendDataToCheckout"
               data-testid="paymentSubmit"
-              :disabled="$v.payment.$invalid"
+              :disabled="!sendToShippingAddress && $v.payment.$invalid"
             >
               {{ $t('Go review the order') }}
             </button-full>

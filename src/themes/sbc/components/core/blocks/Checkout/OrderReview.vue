@@ -47,8 +47,7 @@
               >
                 {{ $t('I agree to') }}
                 <span
-                  class="link pointer"
-                  @click.prevent="$bus.$emit('modal-toggle', 'modal-terms')"
+                  class=""
                 >
                   {{ $t('Terms and conditions') }}
                 </span>
