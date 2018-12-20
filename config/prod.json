@@ -207,5 +207,9 @@
         }
       ]
     }
+  },
+  "cms": {
+    "endpoint": "https://grotesque.store/api/ext/cms-data/cms{{type}}/{{cmsId}}",
+    "endpointIdentifier": "https://grotesque.store/api/ext/cms-data/cms{{type}}Identifier/{{cmsIdentifier}}/storeId/{{storeId}}"
   }
 }
