@@ -40,7 +40,7 @@
               <slide
                 v-for="images in gallery"
                 :key="images.src">
-                <div class="bg-cl-secondary">
+                <div class="single-image-wrapper">
                   <img
                     class="product-image inline-flex pointer mw-100"
                     v-lazy="images"
@@ -124,11 +124,9 @@ export default {
   right: 0;
 }
 img {
-  opacity: 0.9;
   mix-blend-mode: multiply;
   vertical-align: top;
   &:hover {
-    opacity: 1;
   }
 }
 img[lazy=error] {
@@ -182,6 +180,12 @@ img[lazy=loading] {
         background-color: transparent;
       }
     }
+  }
+}
+
+.single-image-wrapper {
+  @media (min-width: 768px) {
+    background: #f2f2f2;
   }
 }
 </style>

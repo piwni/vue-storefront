@@ -105,19 +105,6 @@
                         v-focus-clean
                       />
                     </div>
-                    <router-link
-                      to="/size-guide"
-                      v-if="option.label == 'Size'"
-                      class="
-                        p0 ml30 inline-flex middle-xs no-underline h5
-                        action size-guide pointer cl-secondary
-                      "
-                    >
-                      <i class="pr5 material-icons">accessibility</i>
-                      <span>
-                        {{ $t('Size guide') }}
-                      </span>
-                    </router-link>
                   </div>
                 </div>
               </div>
@@ -153,41 +140,78 @@
                 class="col-xs-12 col-sm-4 col-md-6"
               />
             </div>
+
+            <div class="short-description-wrapper pt20 pb50" itemprop="description">
+              <div class="accordeon">
+                <div class="accordeon-panel" :class="{ active: descOpen }">
+                  <div class="title-wrapper" @click="showDesc()">
+                    {{ $t('Details') }}
+                    <i class="material-icons float-right" v-if="!descOpen">expand_more</i>
+                    <i class="material-icons float-right" v-if="descOpen">expand_less</i>
+                  </div>
+                  <div class="content-wrapper">
+                    <div
+                      class="content-inner lh30 h5"
+                      v-html="product.sbc_desc"
+                    />
+                  </div>
+                </div>
+                <div class="accordeon-panel" :class="{ active: sizingOpen }">
+                  <div class="title-wrapper" @click="showSizing()">
+                    {{ $t('Size guide') }}
+                    <i class="material-icons float-right" v-if="!sizingOpen">expand_more</i>
+                    <i class="material-icons float-right" v-if="sizingOpen">expand_less</i>
+                  </div>
+                  <div class="content-wrapper">
+                    <div
+                      class="content-inner lh30 h5"
+                      v-html="product.sbc_sizing"
+                    />
+                  </div>
+                </div>
+                <div class="accordeon-panel" :class="{ active: paymentOpen }">
+                  <div class="title-wrapper" @click="showPayment()">
+                    {{ $t('Payment') }}
+                    <i class="material-icons float-right" v-if="!paymentOpen">expand_more</i>
+                    <i class="material-icons float-right" v-if="paymentOpen">expand_less</i>
+                  </div>
+                  <div class="content-wrapper">
+                    <div
+                      class="content-inner lh30 h5"
+                      v-html="product.sbc_payment"
+                    />
+                  </div>
+                </div>
+                <div class="accordeon-panel" :class="{ active: shippingOpen }">
+                  <div class="title-wrapper" @click="showShipping()">
+                    {{ $t('Shipping') }}
+                    <i class="material-icons float-right" v-if="!shippingOpen">expand_more</i>
+                    <i class="material-icons float-right" v-if="shippingOpen">expand_less</i>
+                  </div>
+                  <div class="content-wrapper">
+                    <div
+                      class="content-inner lh30 h5"
+                      v-html="product.sbc_shipping"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
       </div>
     </section>
     <section class="container px15 pt50 pb35 cl-accent details">
-      <h2 class="h3 m0 mb10 serif lh20 details-title">
-        {{ $t('Product details') }}
-      </h2>
       <div
         class="h4 details-wrapper"
         :class="{'details-wrapper--open': detailsOpen}"
       >
         <div class="row between-md m0">
-          <div class="col-xs-12 col-sm-6">
+          <div class="col-xs-12 col-sm-10 col-sm-offset-1">
             <div
               class="lh30 h5"
-              itemprop="description"
               v-html="product.description"
             />
-          </div>
-          <div class="col-xs-12 col-sm-5">
-            <div
-              class="lh30 h5"
-              itemprop="description"
-              v-html="product.short_description"
-            />
-            <ul class="attributes p0 pt5 m0">
-              <product-attribute
-                :key="attr.attribute_code"
-                v-for="attr in customAttributes"
-                :product="product"
-                :attribute="attr"
-                empty-placeholder="N/A"
-              />
-            </ul>
           </div>
           <div
             class="details-overlay"
@@ -242,7 +266,11 @@ export default {
   mixins: [Product, VueOfflineMixin],
   data () {
     return {
-      detailsOpen: false
+      detailsOpen: false,
+      descOpen: true,
+      sizingOpen: false,
+      shippingOpen: false,
+      paymentOpen: false
     }
   },
   directives: { focusClean },
@@ -251,10 +279,51 @@ export default {
       return this.isOnWishlist ? 'favorite' : 'favorite_border'
     }
   },
+  created () {
+    let sizingMatch = this.product.short_description.indexOf('<div class="sizing">') + 20
+    this.product.sbc_sizing = this.product.short_description.substr(sizingMatch, this.product.short_description.indexOf('</div>', sizingMatch) - sizingMatch)
+
+    let descMatch = this.product.short_description.indexOf('<div class="description">') + 25
+    this.product.sbc_desc = this.product.short_description.substr(descMatch, this.product.short_description.indexOf('</div>', descMatch) - descMatch)
+
+    let shippingMatch = this.product.short_description.indexOf('<div class="shipping">') + 22
+    this.product.sbc_shipping = this.product.short_description.substr(shippingMatch, this.product.short_description.indexOf('</div>', shippingMatch) - shippingMatch)
+
+    let paymentMatch = this.product.short_description.indexOf('<div class="payment">') + 21
+    this.product.sbc_payment = this.product.short_description.substr(paymentMatch, this.product.short_description.indexOf('</div>', paymentMatch) - paymentMatch)
+  },
   methods: {
     showDetails (event) {
       this.detailsOpen = true
       event.target.classList.add('hidden')
+    },
+    showSizing () {
+      this.descOpen = false
+      this.shippingOpen = false
+      this.paymentOpen = false
+
+      this.sizingOpen = !this.sizingOpen
+    },
+    showDesc () {
+      this.shippingOpen = false
+      this.sizingOpen = false
+      this.paymentOpen = false
+
+      this.descOpen = !this.descOpen
+    },
+    showShipping () {
+      this.descOpen = false
+      this.sizingOpen = false
+      this.paymentOpen = false
+
+      this.shippingOpen = !this.shippingOpen
+    },
+    showPayment () {
+      this.descOpen = false
+      this.sizingOpen = false
+      this.shippingOpen = false
+
+      this.paymentOpen = !this.paymentOpen
     },
     notifyOutStock () {
       this.$store.dispatch('notification/spawnNotification', {
@@ -375,6 +444,8 @@ $bg-secondary: color(secondary, $colors-background);
 }
 
 .details-wrapper {
+  text-align: center;
+
   @media (max-width: 767px) {
     position: relative;
     max-height: 140px;

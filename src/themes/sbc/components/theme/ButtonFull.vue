@@ -41,7 +41,7 @@ export default {
 
 <style lang="scss" scoped>
   .button-full {
-    min-width: 250px;
+    min-width: 100%;
   }
   .disabled {
     background-color: gray

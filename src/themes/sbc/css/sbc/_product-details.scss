@@ -1,0 +1,42 @@
+.product-info-main {
+  .product.attribute.overview {
+    display: none;
+  }
+}
+
+.accordeon {
+  .accordeon-panel {
+    .title-wrapper {
+      cursor: pointer;
+      font-size: 14px;
+      margin-top: 15px;
+      position: relative;
+
+      i {
+        margin-top: -3px;
+      }
+    }
+    .content-wrapper {
+      padding: 10px 0;
+      border-bottom: 1px solid #e2e2e2;
+      transition: all ease-in-out 0.3s;
+
+      .content-inner {
+        max-height: 0;
+        height: auto;
+        overflow: hidden;
+        transition: all ease-in-out 0.3s;
+      }
+    }
+
+    &.active {
+      .content-wrapper {
+        padding: 20px 0 30px;
+
+        .content-inner {
+          max-height: 500px;
+        }
+      }
+    }
+  }
+}
