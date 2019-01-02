@@ -152,7 +152,7 @@
                   <div class="content-wrapper">
                     <div
                       class="content-inner lh30 h5"
-                      v-html="product.sbc_desc"
+                      v-html="sbc_desc"
                     />
                   </div>
                 </div>
@@ -165,7 +165,7 @@
                   <div class="content-wrapper">
                     <div
                       class="content-inner lh30 h5"
-                      v-html="product.sbc_sizing"
+                      v-html="sbc_sizing"
                     />
                   </div>
                 </div>
@@ -178,7 +178,7 @@
                   <div class="content-wrapper">
                     <div
                       class="content-inner lh30 h5"
-                      v-html="product.sbc_payment"
+                      v-html="sbc_payment"
                     />
                   </div>
                 </div>
@@ -191,7 +191,7 @@
                   <div class="content-wrapper">
                     <div
                       class="content-inner lh30 h5"
-                      v-html="product.sbc_shipping"
+                      v-html="sbc_shipping"
                     />
                   </div>
                 </div>
@@ -281,16 +281,29 @@ export default {
   },
   created () {
     let sizingMatch = this.product.short_description.indexOf('<div class="sizing">') + 20
-    this.product.sbc_sizing = this.product.short_description.substr(sizingMatch, this.product.short_description.indexOf('</div>', sizingMatch) - sizingMatch)
+    this.sbc_sizing = this.product.short_description.substr(sizingMatch, this.product.short_description.indexOf('</div>', sizingMatch) - sizingMatch)
 
     let descMatch = this.product.short_description.indexOf('<div class="description">') + 25
-    this.product.sbc_desc = this.product.short_description.substr(descMatch, this.product.short_description.indexOf('</div>', descMatch) - descMatch)
+    this.sbc_desc = this.product.short_description.substr(descMatch, this.product.short_description.indexOf('</div>', descMatch) - descMatch)
 
     let shippingMatch = this.product.short_description.indexOf('<div class="shipping">') + 22
-    this.product.sbc_shipping = this.product.short_description.substr(shippingMatch, this.product.short_description.indexOf('</div>', shippingMatch) - shippingMatch)
+    this.sbc_shipping = this.product.short_description.substr(shippingMatch, this.product.short_description.indexOf('</div>', shippingMatch) - shippingMatch)
 
     let paymentMatch = this.product.short_description.indexOf('<div class="payment">') + 21
-    this.product.sbc_payment = this.product.short_description.substr(paymentMatch, this.product.short_description.indexOf('</div>', paymentMatch) - paymentMatch)
+    this.sbc_payment = this.product.short_description.substr(paymentMatch, this.product.short_description.indexOf('</div>', paymentMatch) - paymentMatch)
+  },
+  updated () {
+    let sizingMatch = this.product.short_description.indexOf('<div class="sizing">') + 20
+    this.sbc_sizing = this.product.short_description.substr(sizingMatch, this.product.short_description.indexOf('</div>', sizingMatch) - sizingMatch)
+
+    let descMatch = this.product.short_description.indexOf('<div class="description">') + 25
+    this.sbc_desc = this.product.short_description.substr(descMatch, this.product.short_description.indexOf('</div>', descMatch) - descMatch)
+
+    let shippingMatch = this.product.short_description.indexOf('<div class="shipping">') + 22
+    this.sbc_shipping = this.product.short_description.substr(shippingMatch, this.product.short_description.indexOf('</div>', shippingMatch) - shippingMatch)
+
+    let paymentMatch = this.product.short_description.indexOf('<div class="payment">') + 21
+    this.sbc_payment = this.product.short_description.substr(paymentMatch, this.product.short_description.indexOf('</div>', paymentMatch) - paymentMatch)
   },
   methods: {
     showDetails (event) {

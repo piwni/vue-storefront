@@ -257,7 +257,7 @@ $transparent-black: color(transparent-black);
     &:hover,
     &:focus {
       i {
-        color: $color-matterhorn;
+        color: black;
       }
     }
   }

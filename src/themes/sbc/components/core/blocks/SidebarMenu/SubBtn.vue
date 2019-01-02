@@ -67,7 +67,7 @@ $color-black: color(matterhorn);
 
 button {
   i {
-    color: $color-gray;
+    color: black;
     font-size: 28px;
     line-height: 24px;
   }

@@ -206,5 +206,9 @@
         }
       ]
     }
+  },
+  "cms": {
+    "endpoint": "https://xxx.soboredclub.com/api/ext/cms-data/cms{{type}}/{{cmsId}}",
+    "endpointIdentifier": "https://xxx.soboredclub.com/api/ext/cms-data/cms{{type}}Identifier/{{cmsIdentifier}}/storeId/{{storeId}}"
   }
 }
