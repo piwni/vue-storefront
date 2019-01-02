@@ -62,7 +62,8 @@
       <div class="col-xs-12 col-sm-9 col-md-11">
         <div class="row">
           <div class="col-xs-12 col-md-8 px20">
-            <slot name="placeOrderButton">
+            <paypal-button v-if="payment.paymentMethod === 'vsfpaypal'"/>
+            <slot name="placeOrderButton" v-else>
               <button-full
                 @click.native="placeOrder"
                 data-testid="orderReviewSubmit"
@@ -115,6 +116,7 @@ import CartSummary from 'theme/components/core/blocks/Checkout/CartSummary'
 import Modal from 'theme/components/core/Modal'
 import { OrderReview } from '@vue-storefront/core/modules/checkout/components/OrderReview'
 import ValidationError from 'theme/components/core/ValidationError'
+import PaypalButton from 'src/modules/paypal/components/Button'
 
 export default {
   components: {
@@ -122,7 +124,8 @@ export default {
     ButtonFull,
     CartSummary,
     Modal,
-    ValidationError
+    ValidationError,
+    PaypalButton
   },
   mixins: [OrderReview, Composite],
   validations: {
@@ -130,6 +133,11 @@ export default {
       terms: {
         required
       }
+    }
+  },
+  data () {
+    return {
+      payment: this.$store.state.checkout.paymentDetails
     }
   },
   methods: {
