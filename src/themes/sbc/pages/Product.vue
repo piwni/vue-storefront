@@ -1,6 +1,6 @@
 <template>
   <div id="product" itemscope itemtype="http://schema.org/Product">
-    <section class="bg-cl-secondary px20 product-top-section">
+    <section class="bg-cl-white px20 product-top-section">
       <div class="container">
         <section class="row m0 between-xs">
           <div class="col-xs-12 col-md-6 center-xs middle-xs image">
@@ -201,25 +201,28 @@
         </section>
       </div>
     </section>
-    <section class="container px15 pt50 pb35 cl-accent details">
-      <div
-        class="h4 details-wrapper"
-        :class="{'details-wrapper--open': detailsOpen}"
-      >
-        <div class="row between-md m0">
-          <div class="col-xs-12 col-sm-10 col-sm-offset-1">
+    <div class="bg-cl-light-gray">
+      <section class="container px15 pt50 pb35 cl-accent details">
+        <div
+          class="h4 details-wrapper"
+          :class="{'details-wrapper--open': detailsOpen}"
+        >
+          <div class="row between-md m0">
+            <div class="col-xs-12 col-sm-10 col-sm-offset-1">
+              <div
+                class="lh30 h5"
+                v-html="product.description"
+              />
+            </div>
             <div
-              class="lh30 h5"
-              v-html="product.description"
+              class="details-overlay"
+              @click="showDetails"
             />
           </div>
-          <div
-            class="details-overlay"
-            @click="showDetails"
-          />
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
+
     <related-products
       type="upsell"
       :heading="$t('We found other products you might like')"
@@ -529,4 +532,12 @@ $bg-secondary: color(secondary, $colors-background);
   font-size: 14px;
 }
 
+</style>
+
+<style lang="scss">
+.sbc-detailed-description {
+  .row {
+    margin-top: 20px;
+  }
+}
 </style>

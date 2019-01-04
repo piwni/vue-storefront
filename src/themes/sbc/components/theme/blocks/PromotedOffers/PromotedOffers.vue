@@ -1,5 +1,5 @@
 <template>
-  <section v-if="!singleBanner" class="offers container my30 px15">
+  <section v-if="!singleBanner" class="offers container my15 px15">
     <div class="row">
       <div
         class="offer-container col-xs-12 col-sm-6 pb15"
@@ -119,11 +119,13 @@ export default {
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    opacity: 0.9;
+    opacity: 1;
     transition: 0.3s all;
+    transform: scale(1);
 
     &:hover {
       opacity: 1;
+      transform: scale(1.03);
     }
 
     @media (max-width: 767px) {

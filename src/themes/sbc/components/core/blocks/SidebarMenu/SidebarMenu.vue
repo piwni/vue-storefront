@@ -1,5 +1,5 @@
 <template>
-  <div class="sidebar-menu absolute mw-100 bg-cl-sbc" :class="{ active: isOpen }">
+  <div class="sidebar-menu fixed mw-100 bg-cl-sbc" :class="{ active: isOpen }">
     <div class="row brdr-bottom-1 brdr-cl-bg-sbc">
       <div class="col-xs" v-if="submenu.depth">
         <sub-btn type="back" class="bg-cl-transparent brdr-none" />
@@ -59,37 +59,19 @@
           <li @click="closeMenu">
             <router-link
               class="block px25 py20 cl-accent no-underline fs-medium-small"
-              :to="localizedRoute('/sale')"
+              :to="localizedRoute('/about-us')"
               exact
             >
-              {{ $t('Sale') }}
+              {{ $t('About us') }}
             </router-link>
           </li>
           <li @click="closeMenu">
             <router-link
               class="block px25 py20 cl-accent no-underline fs-medium-small"
-              :to="localizedRoute('/magazine')"
+              :to="localizedRoute('/faq')"
               exact
             >
-              {{ $t('Magazine') }}
-            </router-link>
-          </li>
-          <li @click="closeMenu" v-if="compareIsActive">
-            <router-link
-              class="block px25 py20 cl-accent no-underline fs-medium-small"
-              :to="localizedRoute('/compare')"
-              exact
-            >
-              {{ $t('Compare products') }}
-            </router-link>
-          </li>
-          <li @click="closeMenu">
-            <router-link
-              class="block px25 py20 cl-accent no-underline fs-medium-small"
-              :to="localizedRoute('/order-tracking')"
-              exact
-            >
-              {{ $t('Track my order') }}
+              {{ $t('FAQ') }}
             </router-link>
           </li>
           <li @click="closeMenu" class="flex">
@@ -115,6 +97,12 @@
         </ul>
       </div>
     </div>
+
+    <div class="sidebar-lang-switcher">
+      <a href="#" class="store-locale" @click="closeMenu" @click.prevent="$bus.$emit('modal-show', 'modal-switcher')">
+        {{ langFull }}
+      </a>
+    </div>
   </div>
 </template>
 
@@ -125,6 +113,7 @@ import i18n from '@vue-storefront/i18n'
 import SidebarMenu from '@vue-storefront/core/compatibility/components/blocks/SidebarMenu/SidebarMenu'
 import SubBtn from 'theme/components/core/blocks/SidebarMenu/SubBtn'
 import SubCategory from 'theme/components/core/blocks/SidebarMenu/SubCategory'
+import { currentStoreView } from '@vue-storefront/store/lib/multistore'
 
 export default {
   components: {
@@ -133,7 +122,9 @@ export default {
   },
   mixins: [SidebarMenu],
   data () {
+    const storeView = currentStoreView()
     return {
+      langFull: storeView.i18n.fullLanguageName,
       activeSubMenu: null,
       myAccountLinks: [
         {
@@ -262,5 +253,14 @@ $transparent-black: color(transparent-black);
     }
   }
 
+  .sidebar-lang-switcher {
+    background: #000;
+    padding: 20px 25px;
+    color: #fff;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
 }
 </style>

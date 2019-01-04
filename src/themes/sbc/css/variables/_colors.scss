@@ -10,6 +10,7 @@ $colors: (
   black: #000,
   white: #fff,
   white-smoke: #f2f2f2,
+  light-gray: #f9f9f9,
   gainsboro: #e0e0e0,
   silver: #bdbdbd,
   gray: #828282,
@@ -64,5 +65,6 @@ $colors-background: (
   ),
   tertiary: map-get($colors, suva-gray),
   sbc: map-get($colors, sbc),
-  dark: map-get($colors, dark)
+  dark: map-get($colors, dark),
+  light-gray: map-get($colors, light-gray)
 );

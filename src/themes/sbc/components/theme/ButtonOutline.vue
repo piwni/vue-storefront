@@ -6,6 +6,7 @@
     :class="{
       light : color === 'light', 'brdr-white' : color === 'light', 'cl-white' : color === 'light',
       dark : color === 'dark', 'brdr-darkgray' : color === 'dark', 'cl-secondary' : color === 'dark',
+      black : color === 'black', 'brdr-black' : color === 'black', 'cl-black' : color === 'black',
       px0 : link ? true : false,
       px40 : link ? false : true
     }"
@@ -49,6 +50,15 @@ export default {
   }
   .dark {
     border: 1px solid $dark-border;
+    &:hover,
+    &:focus {
+      color: $white;
+      background: $black;
+      border-color: $black;
+    }
+  }
+  .black {
+    border: 1px solid black;
     &:hover,
     &:focus {
       color: $white;

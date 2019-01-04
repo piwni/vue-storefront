@@ -210,5 +210,12 @@
   "cms": {
     "endpoint": "https://xxx.soboredclub.com/api/ext/cms-data/cms{{type}}/{{cmsId}}",
     "endpointIdentifier": "https://xxx.soboredclub.com/api/ext/cms-data/cms{{type}}Identifier/{{cmsIdentifier}}/storeId/{{storeId}}"
+  },
+  "paypal": {
+    "env": "sandbox",
+    "endpoint": {
+      "create": "http://localhost:8080/api/ext/payment-paypal/create",
+      "execute": "http://localhost:8080/api/ext/payment-paypal/execute"
+    }
   }
 }

@@ -183,9 +183,4 @@ img[lazy=loading] {
   }
 }
 
-.single-image-wrapper {
-  @media (min-width: 768px) {
-    background: #f2f2f2;
-  }
-}
 </style>
