@@ -214,8 +214,8 @@
   "paypal": {
     "env": "sandbox",
     "endpoint": {
-      "create": "http://localhost:8080/api/ext/payment-paypal/create",
-      "execute": "http://localhost:8080/api/ext/payment-paypal/execute"
+      "create": "https://xxx.soboredclub.com/api/ext/payment-paypal/create",
+      "execute": "https://xxx.soboredclub.com/api/ext/payment-paypal/execute"
     }
   }
 }
