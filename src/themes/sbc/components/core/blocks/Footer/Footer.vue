@@ -180,12 +180,14 @@ footer {
     display: none;
   }
 
-  .social {
-    margin-top: 0;
-  }
-
   .footer-links {
     padding-bottom: 30px;
+  }
+}
+
+@media (max-width: 767px) {
+  .social {
+    margin-top: 40px;
   }
 }
 </style>

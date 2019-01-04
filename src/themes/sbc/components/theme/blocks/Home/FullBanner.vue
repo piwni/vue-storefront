@@ -129,4 +129,9 @@ a.container {
     height: 359px;
   }
 }
+@media (max-width: 767px) {
+  .main-banner {
+    display: none;
+  }
+}
 </style>

@@ -23,7 +23,7 @@
 
       <div class="col-xs-12 col-sm-12">
         <div class="row">
-          <div class="col-xs-12 col-sm-6" v-for="(banner, index) in banners.smallBanners" :key="index">
+          <div class="col-xs-12 col-sm-6 mb15" v-for="(banner, index) in banners.smallBanners" :key="index">
             <div
               class="offer-container pb15"
             >
