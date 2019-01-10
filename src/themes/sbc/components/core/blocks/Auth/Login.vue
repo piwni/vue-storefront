@@ -1,6 +1,6 @@
 <template>
   <div>
-    <header class="modal-header py25 px65 h1 serif weight-700 bg-cl-secondary">
+    <header class="modal-header py25 px65 h1 serif weight-700 bg-cl-white">
       <i
         slot="close"
         class="modal-close material-icons p15 cl-bg-tertiary"

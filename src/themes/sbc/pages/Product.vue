@@ -3,7 +3,7 @@
     <section class="bg-cl-white px20 product-top-section">
       <div class="container">
         <section class="row m0 between-xs">
-          <div class="col-xs-12 col-md-6 center-xs middle-xs image">
+          <div class="col-xs-12 col-md-7 center-xs middle-xs image">
             <product-gallery
               :gallery="gallery"
               :offline="offlineImage"
@@ -58,12 +58,6 @@
                   v-if="(!product.errors || Object.keys(product.errors).length === 0) && Object.keys(configuration).length > 0"
                   :key="index"
                 >
-                  <div class="variants-label" data-testid="variantsLabel">
-                    {{ option.label }}
-                    <span class="weight-700">
-                      {{ configuration[option.attribute_code ? option.attribute_code : option.label.toLowerCase()].label }}
-                    </span>
-                  </div>
                   <div class="row top-xs m0 pt15 pb40 variants-wrapper">
                     <div v-if="option.label == 'Color'">
                       <color-selector
@@ -121,19 +115,6 @@
               v-else-if="product.custom_options && product.custom_options.length > 0 && !loading"
               :product="product"
             />
-            <div class="row m0 mb15" v-if="product.type_id !== 'grouped' && product.type_id !== 'bundle'">
-              <div>
-                <label class="qty-label flex" for="quantity">{{ $t('Quantity') }}</label>
-                <input
-                  type="number"
-                  min="0"
-                  class="m0 no-outline qty-input py10 brdr-cl-primary bg-cl-transparent h4"
-                  id="quantity"
-                  focus
-                  v-model="product.qty"
-                >
-              </div>
-            </div>
             <div class="row m0">
               <add-to-cart
                 :product="product"
@@ -269,7 +250,7 @@ export default {
   mixins: [Product, VueOfflineMixin],
   data () {
     return {
-      detailsOpen: false,
+      detailsOpen: true,
       descOpen: true,
       sizingOpen: false,
       shippingOpen: false,
@@ -393,12 +374,16 @@ $bg-secondary: color(secondary, $colors-background);
 }
 
 .product-name {
+  font-size: 32px;
   @media (max-width: 767px) {
-    font-size: 36px;
+    font-size: 28px;
   }
 }
 
 .price {
+  .h2, .h3 {
+    font-size: 16px;
+  }
   @media (max-width: 767px) {
     color: $color-primary;
   }
@@ -536,8 +521,27 @@ $bg-secondary: color(secondary, $colors-background);
 
 <style lang="scss">
 .sbc-detailed-description {
+  max-width: 800px;
+  margin: 0 auto;
+
   .row {
     margin-top: 20px;
+  }
+  h2 {
+    font-size: 20px;
+    text-transform: uppercase;
+  }
+  p {
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  .sbc-detailed-inner {
+    text-align: left;
+
+    h3 {
+      font-size: 16px;
+    }
   }
 }
 </style>

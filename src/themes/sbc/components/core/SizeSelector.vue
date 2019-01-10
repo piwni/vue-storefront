@@ -36,9 +36,9 @@ export default {
     }
 
     &.active {
-      border-color: $color-active;
-      border-width: 2px;
-      color: $color-active;
+      border-color: black;
+      background: black;
+      color: white;
     }
 
     &:disabled {

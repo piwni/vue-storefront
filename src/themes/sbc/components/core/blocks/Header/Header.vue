@@ -1,8 +1,33 @@
 <template>
   <div class="header">
+    <div class="meta-header" :class="{ 'is-visible': scrollTop === 0 }">
+      <div class="container px15">
+        <div class="row">
+          <div class="col-xs-4">
+            <div class="startpage-top-wrapper">
+              <strong>{{ $t('Free delivery') }}</strong>
+              <span>{{ $t('On all orders') }}</span>
+            </div>
+          </div>
+
+          <div class="col-xs-4">
+            <div class="startpage-top-wrapper">
+              <strong>{{ $t('30 days return policy') }}</strong>
+              <span>{{ $t('Love it or return it') }}</span>
+            </div>
+          </div>
+          <div class="col-xs-4">
+            <div class="startpage-top-wrapper">
+              <strong>{{ $t('Secure payments') }}</strong>
+              <span>{{ $t('Encrypted and protected') }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <header
       class="fixed w-100 bg-cl-primary"
-      :class="{ 'is-visible': navVisible }"
+      :class="{ 'is-visible': navVisible, 'meta-visible': scrollTop === 0 }"
     >
       <div class="container px15">
         <div class="row between-xs middle-xs" v-if="!isCheckoutPage">
@@ -138,10 +163,13 @@ export default {
 header {
   height: 54px;
   top: -55px;
-  z-index: 2;
+  z-index: 3;
   transition: top 0.2s ease-in-out;
   &.is-visible {
     top: 0;
+  }
+  &.is-visible.meta-visible {
+    top: 46px;
   }
 }
 .icon {
@@ -179,6 +207,46 @@ header {
   }
   a, span {
     font-size: 12px;
+  }
+}
+
+.meta-header {
+  background: #000;
+  padding: 10px 20px;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 10px;
+
+  position: fixed;
+  left: 0;
+  top: -50px;
+  width: 100%;
+  z-index: 2;
+
+  transition: top 0.2s ease-in-out;
+
+  &.is-visible {
+    top: 0;
+  }
+
+  .startpage-top-wrapper {
+    border-left: 2px solid #fff;
+    padding-left: 10px;
+
+    @media (max-width: 767px) {
+      margin-bottom: 5px;
+    }
+
+    strong, span {
+      display: block;
+    }
+    span {
+      font-size: 10px;
+
+      @media (max-width: 767px) {
+        display: none;
+      }
+    }
   }
 }
 </style>

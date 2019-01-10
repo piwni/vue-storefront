@@ -1,7 +1,5 @@
 <template>
   <div id="home">
-    <full-banner image="/assets/home/baner_bf.jpg" link="c/sbc-2" />
-
     <promoted-offers/>
 
     <section class="new-collection container px15">
