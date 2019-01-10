@@ -212,7 +212,7 @@ header {
 
 .meta-header {
   background: #000;
-  padding: 10px 20px;
+  padding: 10px 0;
   color: #fff;
   text-transform: uppercase;
   font-size: 10px;
