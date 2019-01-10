@@ -185,8 +185,7 @@
     <div class="bg-cl-light-gray">
       <section class="container px15 pt50 pb35 cl-accent details">
         <div
-          class="h4 details-wrapper"
-          :class="{'details-wrapper--open': detailsOpen}"
+          class="h4 details-wrapper details-wrapper--open"
         >
           <div class="row between-md m0">
             <div class="col-xs-12 col-sm-10 col-sm-offset-1">
@@ -195,10 +194,6 @@
                 v-html="product.description"
               />
             </div>
-            <div
-              class="details-overlay"
-              @click="showDetails"
-            />
           </div>
         </div>
       </section>
