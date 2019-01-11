@@ -211,5 +211,12 @@
   "cms": {
     "endpoint": "https://grotesque.store/api/ext/cms-data/cms{{type}}/{{cmsId}}",
     "endpointIdentifier": "https://grotesque.store/api/ext/cms-data/cms{{type}}Identifier/{{cmsIdentifier}}/storeId/{{storeId}}"
+  },
+  "paypal": {
+    "env": "sandbox",
+    "endpoint": {
+      "create": "https://grotesque.store/api/ext/payment-paypal/create",
+      "execute": "https://grotesque.store/api/ext/payment-paypal/execute"
+    }
   }
 }
