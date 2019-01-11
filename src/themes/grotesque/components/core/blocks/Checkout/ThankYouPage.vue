@@ -20,7 +20,7 @@
             </h3>
             <p v-if="OnlineOnly" v-html="this.$t('You have successfuly placed the order. You can check status of your order by using our <b>delivery status</b> feature. You will receive an order confirmation e-mail with details of your order and a link to track its progress.')" />
             <p v-if="OnlineOnly && lastOrderConfirmation" v-html="this.$t('The server order id has been set to ') + lastOrderConfirmation.backendOrderId"/>
-            <p v-if="OnlineOnly" v-html="this.$t('E-mail us at <b>demo@vuestorefront.io</b> with any questions, suggestions how we could improve products or shopping experience')"/>
+            <p v-if="OnlineOnly" v-html="this.$t('E-mail us at <b>info@grotesque.store</b> with any questions, suggestions how we could improve products or shopping experience')"/>
 
             <h4 v-if="OfflineOnly">
               {{ $t('You are offline') }}
