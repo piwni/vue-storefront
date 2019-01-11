@@ -33,6 +33,9 @@ export const Payment = {
       this.payment.paymentMethod = this.paymentMethods[0].code
     }
   },
+  beforeMount () {
+    this.$bus.$on('checkout-set-use-shipping-address', this.useShippingAddress)
+  },
   mounted () {
     if (this.payment.firstName.length === 0) {
       this.initializeBillingAddress()
@@ -42,7 +45,6 @@ export const Payment = {
       }
     }
     this.changePaymentMethod()
-    this.useShippingAddress()
  },
   methods: {
     sendDataToCheckout () {

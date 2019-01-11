@@ -9,7 +9,7 @@
       <div class="modal-wrapper">
         <div class="modal-center">
           <div class="modal-container bg-cl-primary" ref="modal-content" :style="style">
-            <header class="modal-header py25 px65 h1 serif weight-700 bg-cl-secondary" v-if="$slots.header">
+            <header class="modal-header py25 px65 h2 serif weight-700 bg-cl-white" v-if="$slots.header">
               <i
                 slot="close"
                 class="modal-close material-icons p15 cl-bg-tertiary"

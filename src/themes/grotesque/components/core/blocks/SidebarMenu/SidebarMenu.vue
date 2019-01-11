@@ -1,5 +1,5 @@
 <template>
-  <div class="sidebar-menu absolute mw-100 bg-cl-secondary" :class="{ active: isOpen }">
+  <div class="sidebar-menu fixed mw-100 bg-cl-secondary" :class="{ active: isOpen }">
     <div class="row brdr-bottom-1 brdr-cl-bg-secondary">
       <div class="col-xs bg-cl-primary" v-if="submenu.depth">
         <sub-btn type="back" class="bg-cl-transparent brdr-none" />
@@ -58,38 +58,29 @@
           </li>
           <li @click="closeMenu">
             <router-link
-              class="block px25 py20 brdr-bottom-1 brdr-cl-secondary cl-accent no-underline fs-medium-small"
-              :to="localizedRoute('/sale')"
+              class="block px25 py20 cl-accent no-underline fs-medium-small"
+              :to="localizedRoute('/about-us')"
               exact
             >
-              {{ $t('Sale') }}
+              {{ $t('About us') }}
             </router-link>
           </li>
           <li @click="closeMenu">
             <router-link
-              class="block px25 py20 brdr-bottom-1 brdr-cl-secondary cl-accent no-underline fs-medium-small"
-              :to="localizedRoute('/magazine')"
+              class="block px25 py20 cl-accent no-underline fs-medium-small"
+              :to="localizedRoute('/faq')"
               exact
             >
-              {{ $t('Magazine') }}
-            </router-link>
-          </li>
-          <li @click="closeMenu" v-if="compareIsActive">
-            <router-link
-              class="block px25 py20 brdr-bottom-1 brdr-cl-secondary cl-accent no-underline fs-medium-small"
-              :to="localizedRoute('/compare')"
-              exact
-            >
-              {{ $t('Compare products') }}
+              {{ $t('FAQ') }}
             </router-link>
           </li>
           <li @click="closeMenu">
             <router-link
-              class="block px25 py20 brdr-bottom-1 brdr-cl-secondary cl-accent no-underline fs-medium-small"
-              :to="localizedRoute('/order-tracking')"
+              class="block px25 py20 cl-accent no-underline fs-medium-small"
+              :to="localizedRoute('/size-guide')"
               exact
             >
-              {{ $t('Track my order') }}
+              {{ $t('Size guide') }}
             </router-link>
           </li>
           <li @click="closeMenu" class="brdr-bottom-1 brdr-cl-secondary flex">

@@ -1,7 +1,7 @@
 <template>
   <modal name="modal-switcher" :width="650">
     <p slot="header">
-      {{ $t('Choose your country') }}
+      {{ $t('Choose your language') }}
     </p>
     <div slot="content">
       <div :class="{ 'columns': enableColumns }">

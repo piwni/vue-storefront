@@ -13,7 +13,7 @@
       <product v-for="product in productsInCart" :key="product.sku" :product="product"/>
       <div v-if="productsInCart && productsInCart.length" class="checkout pt10 serif cl-accent">
 
-        <div v-for="(segment, index) in totals" :key="index" class="row pt15 pb20 " v-if="segment.code !== 'grand_total'">
+        <div v-for="(segment, index) in totals" :key="index" class="row pt15 pb10 " v-if="segment.code !== 'grand_total'">
           <div class="col-xs cl-accent">
             {{ segment.title }}
           </div>

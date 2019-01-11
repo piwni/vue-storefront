@@ -28,7 +28,7 @@
         >
       </div>
 
-      <p class="mb0 cl-accent mt10" v-if="!onlyImage">
+      <p class="mb0 cl-accent mt0 product-title mt10" v-if="!onlyImage">
         {{ product.name | htmlDecode }}
       </p>
 
@@ -40,14 +40,14 @@
       </span>
 
       <span
-        class="price-special lh30 cl-accent weight-700"
+        class="price-final price-special lh30 cl-accent weight-700"
         v-if="product.special_price && parseFloat(product.special_price) > 0 && !onlyImage"
       >
         {{ product.priceInclTax | price }}
       </span>
 
       <span
-        class="lh30 cl-secondary"
+        class="price-final lh30 cl-secondary"
         v-if="!product.special_price && parseFloat(product.priceInclTax) > 0 && !onlyImage"
       >
         {{ product.priceInclTax | price }}
@@ -123,8 +123,17 @@ $color-white: color(white);
   }
 }
 
+.product-title {
+  font-size: 12px;
+}
+
 .price-original {
   text-decoration: line-through;
+  font-size: 14px;
+}
+.price-final {
+  font-size: 14px;
+  color: #b64343;
 }
 
 %label {

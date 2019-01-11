@@ -7,6 +7,10 @@
       <div class="meta-header" :class="{ 'is-visible': metaVisible && !isCheckoutPage }">
         <div class="container px15">
           <div class="meta-inner">
+            <div class="float-left">
+              <i class="material-icons">local_shipping</i>
+              {{ $t('Free shipping on all orders!') }}
+            </div>
             <language-switcher v-if="multistoreEnabled" />
           </div>
         </div>
@@ -182,6 +186,14 @@ header {
       @media (min-width: 768px) {
         margin-right: 15px;
       }
+    }
+
+    i {
+      font-size: 16px;
+      position: relative;
+      top: -2px;
+      vertical-align: middle;
+      margin-right: 2px;
     }
   }
 }

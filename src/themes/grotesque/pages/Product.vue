@@ -3,7 +3,7 @@
     <section class="bg-cl-secondary px20 product-top-section">
       <div class="container">
         <section class="row m0 between-xs">
-          <div class="col-xs-12 col-md-6 center-xs middle-xs image">
+          <div class="col-xs-12 col-md-7 center-xs middle-xs image">
             <product-gallery
               :gallery="gallery"
               :offline="offlineImage"
@@ -58,12 +58,6 @@
                   v-if="(!product.errors || Object.keys(product.errors).length === 0) && Object.keys(configuration).length > 0"
                   :key="index"
                 >
-                  <div class="variants-label" data-testid="variantsLabel">
-                    {{ option.label }}
-                    <span class="weight-700">
-                      {{ configuration[option.attribute_code ? option.attribute_code : option.label.toLowerCase()].label }}
-                    </span>
-                  </div>
                   <div class="row top-xs m0 pt15 pb40 variants-wrapper">
                     <div v-if="option.label == 'Color'">
                       <color-selector
@@ -105,19 +99,21 @@
                         v-focus-clean
                       />
                     </div>
-                    <router-link
-                      to="/size-guide"
-                      v-if="option.label == 'Size'"
-                      class="
-                        p0 ml30 inline-flex middle-xs no-underline h5
+                    <div>
+                      <router-link
+                        to="/size-guide"
+                        v-if="option.label == 'Size'"
+                        class="
+                        p0 inline-flex middle-xs no-underline h5
                         action size-guide pointer cl-secondary
                       "
-                    >
-                      <i class="pr5 material-icons">accessibility</i>
-                      <span>
-                        {{ $t('Size guide') }}
-                      </span>
-                    </router-link>
+                      >
+                        <i class="pr5 material-icons">accessibility</i>
+                        <span>
+                          {{ $t('Size guide') }}
+                        </span>
+                      </router-link>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -134,19 +130,6 @@
               v-else-if="product.custom_options && product.custom_options.length > 0 && !loading"
               :product="product"
             />
-            <div class="row m0 mb15" v-if="product.type_id !== 'grouped' && product.type_id !== 'bundle'">
-              <div>
-                <label class="qty-label flex" for="quantity">{{ $t('Quantity') }}</label>
-                <input
-                  type="number"
-                  min="0"
-                  class="m0 no-outline qty-input py10 brdr-cl-primary bg-cl-transparent h4"
-                  id="quantity"
-                  focus
-                  v-model="product.qty"
-                >
-              </div>
-            </div>
             <div class="row m0">
               <add-to-cart
                 :product="product"
@@ -162,8 +145,7 @@
         {{ $t('Product details') }}
       </h2>
       <div
-        class="h4 details-wrapper"
-        :class="{'details-wrapper--open': detailsOpen}"
+        class="h4 details-wrapper details-wrapper--open"
       >
         <div class="row between-md m0">
           <div class="col-xs-12 col-sm-6">
@@ -184,10 +166,6 @@
               />
             </ul>
           </div>
-          <div
-            class="details-overlay"
-            @click="showDetails"
-          />
         </div>
       </div>
     </section>
@@ -237,7 +215,7 @@ export default {
   mixins: [Product, VueOfflineMixin],
   data () {
     return {
-      detailsOpen: false
+      detailsOpen: true
     }
   },
   directives: { focusClean },
@@ -303,12 +281,16 @@ $bg-secondary: color(secondary, $colors-background);
 }
 
 .product-name {
+  font-size: 32px;
   @media (max-width: 767px) {
-    font-size: 36px;
+    font-size: 28px;
   }
 }
 
 .price {
+  .h2, .h3 {
+    font-size: 16px;
+  }
   @media (max-width: 767px) {
     color: $color-primary;
   }

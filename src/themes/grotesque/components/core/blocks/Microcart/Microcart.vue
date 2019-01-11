@@ -44,7 +44,7 @@
       <h3 class="m0 pt40 mb30 weight-400 summary-heading">
         {{ $t('Shopping summary') }}
       </h3>
-      <div v-for="(segment, index) in totals" :key="index" class="row py20" v-if="segment.code !== 'grand_total'">
+      <div v-for="(segment, index) in totals" :key="index" class="row py10" v-if="segment.code !== 'grand_total'">
         <div class="col-xs">
           {{ segment.title }}
           <button v-if="appliedCoupon && segment.code === 'discount'" type="button" class="p0 brdr-none bg-cl-transparent close delete-button ml10" @click="clearCoupon">
@@ -67,7 +67,7 @@
             {{ $t('Add a discount code') }}
           </button>
         </div>
-        <div v-if="OnlineOnly && addCouponPressed" class="col-xs-12 pt30 coupon-wrapper">
+        <div v-if="OnlineOnly && addCouponPressed" class="col-xs-12 coupon-wrapper">
           <div class="coupon-input">
             <label class="h6 cl-secondary">{{ $t('Discount code') }}</label>
             <base-input type="text" id="couponinput" :autofocus="true" v-model.trim="couponCode" @keyup.enter="setCoupon"/>
@@ -76,7 +76,7 @@
         </div>
       </div>
 
-      <div class="row pt30 pb20 weight-700 middle-xs" v-for="(segment, index) in totals" :key="index" v-if="segment.code === 'grand_total'">
+      <div class="row pt30 weight-700 middle-xs" v-for="(segment, index) in totals" :key="index" v-if="segment.code === 'grand_total'">
         <div class="col-xs h4 total-price-label">
           {{ segment.title }}
         </div>

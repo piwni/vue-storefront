@@ -13,10 +13,17 @@ export const OrderReview ={
       isFilled: false,
       orderReview: {
         terms: false
-      }
+      },
+      paymentMethod: null
     }
   },
+  beforeMount () {
+    this.$bus.$on('checkout-payment-method-changed', this.changePaymentMethod)
+  },
   methods: {
+    changePaymentMethod (paymentMethod) {
+      this.paymentMethod = paymentMethod
+    },
     placeOrder () {
       if (this.$store.state.checkout.personalDetails.createAccount) {
         this.register()

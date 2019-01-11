@@ -89,29 +89,11 @@
       </div>
     </div>
     <div class="container">
-      <div class="row middle-xs bottom-links">
-        <div class="col-xs-5 col-sm-3 cl-tertiary">
-          <language-switcher v-if="multistoreEnabled" />
-        </div>
-        <div class="col-xs col-sm-9 end-xs">
+      <div class="row middle-xs bottom-links pb50">
+        <div class="col-xs-12 col-sm-12 end-xs">
           <ul class="pl0 links" data-testid="bottomLinks">
             <li class="inline-flex">
-              <router-link
-                class="cl-tertiary mr10 underline"
-                to="/legal"
-                exact
-              >
-                {{ $t('Legal notice') }}
-              </router-link>
-            </li>
-            <li class="inline-flex">
-              <router-link
-                class="cl-tertiary underline"
-                to="/privacy"
-                exact
-              >
-                {{ $t('Privacy policy') }}
-              </router-link>
+              <language-switcher v-if="multistoreEnabled" />
             </li>
           </ul>
         </div>
@@ -202,12 +184,14 @@ $color-secondary: color(secondary);
     display: none;
   }
 
-  .social {
-    margin-top: 0;
-  }
-
   .footer-links {
     padding-bottom: 30px;
+  }
+}
+
+@media (max-width: 767px) {
+  .social {
+    margin-top: 40px;
   }
 }
 </style>

@@ -23,12 +23,14 @@ export default {
 <style lang="scss" scoped>
   @import '~theme/css/variables/colors';
   @import '~theme/css/helpers/functions/color';
-  $color-active: color(secondary);
+  $color-active: black;
   $color-disabled: color(secondary, $colors-border);
 
   .size-selector {
-    width: 40px;
+    width: 56px;
     height: 40px;
+    font-size: 12px;
+    white-space: nowrap;
 
     &:hover,
     &:focus {
@@ -37,8 +39,8 @@ export default {
 
     &.active {
       border-color: $color-active;
-      border-width: 2px;
-      color: $color-active;
+      background: $color-active;
+      color: white;
     }
 
     &:disabled {

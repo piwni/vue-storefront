@@ -43,7 +43,7 @@ $colors-theme: (
   success: map-get($colors, puerto-rico),
   warning: map-get($colors, buccaneer),
   error: map-get($colors, burnt-sienna),
-  grotesque: map_get($colors, grotesque)
+  grotesque: map-get($colors, grotesque)
 );
 
 $colors-border: (

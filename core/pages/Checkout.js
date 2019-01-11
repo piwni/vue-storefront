@@ -170,6 +170,7 @@ export default {
       this.validationResults.shipping = validationResult
       this.activateSection('payment')
       this.saveShippingDetails()
+      this.$bus.$emit('checkout-set-use-shipping-address')
 
       const storeView = currentStoreView()
       storeView.tax.defaultCountry = this.shipping.country
