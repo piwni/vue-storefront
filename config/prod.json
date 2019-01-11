@@ -146,7 +146,7 @@
       "pt-BR",
       "pl-PL"
     ],
-    "defaultLocale": "en-EN",
+    "defaultLocale": "en-US",
     "currencyCode": "EUR",
     "currencySign": "EUR",
     "dateFormat": "HH:mm D/M/YYYY",
