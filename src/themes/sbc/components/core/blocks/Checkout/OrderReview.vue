@@ -62,6 +62,8 @@
       <div class="col-xs-12 col-sm-9 col-md-11">
         <div class="row">
           <div class="col-xs-12 col-md-8 px20">
+            <braintree-dropin v-if="paymentMethod === 'braintree'"/>
+
             <paypal-button v-if="paymentMethod === 'vsfpaypal'"/>
             <slot name="placeOrderButton" v-else>
               <button-full
@@ -117,6 +119,7 @@ import Modal from 'theme/components/core/Modal'
 import { OrderReview } from '@vue-storefront/core/modules/checkout/components/OrderReview'
 import ValidationError from 'theme/components/core/ValidationError'
 import PaypalButton from 'src/modules/paypal/components/Button'
+import BraintreeDropin from 'src/modules/payment-braintree/components/Dropin'
 
 export default {
   components: {
@@ -125,7 +128,8 @@ export default {
     CartSummary,
     Modal,
     ValidationError,
-    PaypalButton
+    PaypalButton,
+    BraintreeDropin
   },
   mixins: [OrderReview, Composite],
   validations: {

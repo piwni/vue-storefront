@@ -244,7 +244,7 @@
               {{ $t('Payment method') }}
             </h4>
           </div>
-          <div v-for="(method, index) in paymentMethods" v-if="method.code === 'checkmo' || method.code === 'vsfpaypal'" :key="index" class="col-md-6">
+          <div v-for="(method, index) in paymentMethods" v-if="method.code === 'checkmo' || method.code === 'vsfpaypal' || method.code === 'braintree'" :key="index" class="col-md-6">
             <label class="radioStyled"> {{ method.title ? method.title : method.name }}
               <input
                 type="radio"

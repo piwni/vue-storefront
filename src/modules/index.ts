@@ -19,6 +19,7 @@ import { PaymentBackendMethods } from './payment-backend-methods';
 import { RawOutputExample } from './raw-output-example'
 import { Magento2CMS } from './magento-2-cms'
 import { Paypal } from './paypal'
+import { Braintree } from './payment-braintree'
 
 // Some modules  that still needs API refactoring are  temporary registered in core
 // This is how you can adjust any module with application-specific behavior
@@ -50,6 +51,7 @@ export const registerModules: VueStorefrontModule[] = [
   PaymentBackendMethods,
   RawOutputExample,
   AmpRenderer,
-  Paypal
+  Paypal,
+  Braintree
   // Example
 ]
