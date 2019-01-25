@@ -204,7 +204,7 @@ export default {
       content: "";
       display: block;
       background: #fafafa;
-      top: -100px;
+      top: -21px;
       left: -300%;
       bottom: 0;
       width: 600%;
