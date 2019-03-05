@@ -136,37 +136,36 @@
                 class="col-xs-12 col-sm-4 col-md-6"
               />
             </div>
+
+            <h2 class="h3 m0 mb10 mt50 serif lh20 details-title">
+              {{ $t('Product details') }}
+            </h2>
+            <div
+              class="h4 details-wrapper details-wrapper--open"
+            >
+              <div class="row between-md">
+                <div class="col-xs-12 col-sm-12">
+                  <div
+                    class="lh30 h5"
+                    itemprop="description"
+                    v-html="product.description"
+                  />
+                </div>
+                <div class="col-xs-12 col-sm-12">
+                  <ul class="attributes p0 pt5 m0">
+                    <product-attribute
+                      :key="attr.attribute_code"
+                      v-for="attr in customAttributes"
+                      :product="product"
+                      :attribute="attr"
+                      empty-placeholder="N/A"
+                    />
+                  </ul>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
-      </div>
-    </section>
-    <section class="container px15 pt50 pb35 cl-accent details">
-      <h2 class="h3 m0 mb10 serif lh20 details-title">
-        {{ $t('Product details') }}
-      </h2>
-      <div
-        class="h4 details-wrapper details-wrapper--open"
-      >
-        <div class="row between-md m0">
-          <div class="col-xs-12 col-sm-6">
-            <div
-              class="lh30 h5"
-              itemprop="description"
-              v-html="product.description"
-            />
-          </div>
-          <div class="col-xs-12 col-sm-5">
-            <ul class="attributes p0 pt5 m0">
-              <product-attribute
-                :key="attr.attribute_code"
-                v-for="attr in customAttributes"
-                :product="product"
-                :attribute="attr"
-                empty-placeholder="N/A"
-              />
-            </ul>
-          </div>
-        </div>
       </div>
     </section>
     <related-products
@@ -343,8 +342,6 @@ $bg-secondary: color(secondary, $colors-background);
 }
 
 .details-title {
-  padding: 0 8px;
-
   @media (max-width: 767px) {
     font-size: 18px;
     margin: 0;

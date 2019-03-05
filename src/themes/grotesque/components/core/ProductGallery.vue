@@ -136,6 +136,7 @@ img[lazy=error] {
 }
 img[lazy=loading] {
   width: 100%;
+  max-width: 500px;
 }
 
 .thumbnails {
