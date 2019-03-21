@@ -32,7 +32,7 @@ export default {
   metaInfo () {
     return {
       title: this.$route.meta.title || i18n.t('Home Page'),
-      meta: this.$route.meta.description ? [{ vmid: 'description', description: this.$route.meta.description }] : [{ vmid: 'description', description: i18n.t('__pagedescription') }]
+      meta: this.$route.meta.description ? [{ vmid: 'description', name: 'description', content: this.$route.meta.description }] : [{ vmid: 'description', name: 'description', content: i18n.t('__pagedescription') }]
     }
   }
 }
