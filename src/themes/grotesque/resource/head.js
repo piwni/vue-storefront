@@ -1,12 +1,13 @@
 export default {
-  title: 'Default Theme',
+  title: 'Grotesque',
   titleTemplate: '%s - Grotesque',
   htmlAttrs: {
     lang: 'en'
   },
   meta: [
     { charset: 'utf-8' },
-    { vmid: 'description', name: 'description', content: 'Vue Storefront is a standalone PWA storefront for your eCommerce, possible to connect with any eCommerce backend (eg. Magento, Prestashop or Shopware) through the API.' },
+    // { vmid: 'description', name: 'description', content: 'Najwyższa jakość tkanin, niekonwencjonalne projekty realizowane w Polsce oraz mistrzowska krawiecka ręka to to, co wyróżnia nas na rynku europejskim.' },
+    { vmid: 'description', name: 'description', content: 'The best quality fabrics, extraordinary designs produced in EU and only the best tailors is what makes us unique on the European market.' },
     { name: 'viewport', content: 'width=device-width, initial-scale=1, minimal-ui' },
     { name: 'robots', content: 'index, follow' },
     { name: 'mobile-web-app-capable', content: 'yes' },
